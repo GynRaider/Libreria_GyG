@@ -1363,7 +1363,7 @@ ControlaInstanciaPR(np);
     }//GEN-LAST:event_nuevoproveedorActionPerformed
 
     private void mostrarproveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarproveedoresActionPerformed
-   MostrarProveedores mp = new MostrarProveedores();
+        MostrarProveedores mp =new MostrarProveedores();
         this.Contenedor.add(mp);
         mp.show(); 
     }//GEN-LAST:event_mostrarproveedoresActionPerformed
