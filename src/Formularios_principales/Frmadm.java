@@ -1352,7 +1352,9 @@ rcp.show();
     }//GEN-LAST:event_entradaproductoActionPerformed
 
     private void modificarproveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarproveedorActionPerformed
-       
+modificarProveedor adm5 = new modificarProveedor();
+        this.Contenedor.add(adm5);
+        adm5.show();       
     }//GEN-LAST:event_modificarproveedorActionPerformed
 
     private void nuevoproveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoproveedorActionPerformed
@@ -1361,9 +1363,9 @@ ControlaInstanciaPR(np);
     }//GEN-LAST:event_nuevoproveedorActionPerformed
 
     private void mostrarproveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarproveedoresActionPerformed
-   modificarProveedor adm5 = new modificarProveedor();
-        this.Contenedor.add(adm5);
-        adm5.show();
+        MostrarProveedores mp =new MostrarProveedores();
+        this.Contenedor.add(mp);
+        mp.show(); 
     }//GEN-LAST:event_mostrarproveedoresActionPerformed
 
     private void devolucionproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_devolucionproductoActionPerformed
