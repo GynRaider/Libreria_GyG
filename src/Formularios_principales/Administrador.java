@@ -13,7 +13,7 @@ import java.awt.geom.RoundRectangle2D;
 
 /**
  *
- * @author Michael
+ * @author MichaelSIN CODIGO
  * 
  * SINCRONIZA
  */

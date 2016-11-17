@@ -1,31 +1,35 @@
-
 package Formularios_principales;
 
+import com.sun.awt.AWTUtilities;
 import java.awt.Image;
+import java.awt.Shape;
 import java.awt.Toolkit;
+import java.awt.geom.RoundRectangle2D;
 import javax.swing.JOptionPane;
 
 public class Frmalmacen extends javax.swing.JFrame {
-   
+
     public Frmalmacen() {
+        this.setUndecorated(true);
         initComponents();
+
+        this.setLocationRelativeTo(null);
+        Shape forma = new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 27, 27);
+        AWTUtilities.setWindowShape(this, forma);
+
 //        Conexion con=new Conexion();
-        configurar();
         iniciarConexion();
     }
-        
-    public void configurar(){
-         this.setExtendedState(MAXIMIZED_BOTH);
-    }
-     
-    public void iniciarConexion()    {
+
+    public void iniciarConexion() {
         /*COLOCAR LOS DATOS DE CONEXION*/
     }
-    
-    public Image getIconImage(){
-        Image imagen = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Recursos/Applications.png"));
+
+    public Image getIconImage() {
+        Image imagen = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("fondo/GyG.png"));
         return imagen;
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -118,7 +122,8 @@ public class Frmalmacen extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
-        Contenedor = new javax.swing.JDesktopPane();
+        Contenedor1 = new javax.swing.JDesktopPane();
+        Contenedor = new javax.swing.JLabel();
         Menu = new javax.swing.JMenuBar();
         menuArchivo = new javax.swing.JMenu();
         menuOperaciones = new javax.swing.JMenu();
@@ -893,23 +898,34 @@ public class Frmalmacen extends javax.swing.JFrame {
         jLabel5.setText("BRINDAR UN BUEN SERVICIO AL CLIENTE ES LO PRIMORDIAL ");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("SISTEMA DE GESTIÓN DE VENTA - FERRETERÍA PEPITO");
+        setTitle("LIBRERIA G&G");
         setIconImage(getIconImage());
+        setResizable(false);
 
-        Contenedor.setBackground(new java.awt.Color(51, 153, 255));
+        Contenedor1.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout ContenedorLayout = new javax.swing.GroupLayout(Contenedor);
-        Contenedor.setLayout(ContenedorLayout);
-        ContenedorLayout.setHorizontalGroup(
-            ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 881, Short.MAX_VALUE)
+        Contenedor.setBackground(new java.awt.Color(153, 204, 255));
+        Contenedor.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        Contenedor.setForeground(new java.awt.Color(51, 51, 51));
+        Contenedor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Contenedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo/Flong.jpg"))); // NOI18N
+        Contenedor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout Contenedor1Layout = new javax.swing.GroupLayout(Contenedor1);
+        Contenedor1.setLayout(Contenedor1Layout);
+        Contenedor1Layout.setHorizontalGroup(
+            Contenedor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Contenedor, javax.swing.GroupLayout.PREFERRED_SIZE, 1335, Short.MAX_VALUE)
         );
-        ContenedorLayout.setVerticalGroup(
-            ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 415, Short.MAX_VALUE)
+        Contenedor1Layout.setVerticalGroup(
+            Contenedor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Contenedor1Layout.createSequentialGroup()
+                .addComponent(Contenedor, javax.swing.GroupLayout.PREFERRED_SIZE, 658, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
+        Contenedor1.setLayer(Contenedor, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        getContentPane().add(Contenedor, java.awt.BorderLayout.CENTER);
+        getContentPane().add(Contenedor1, java.awt.BorderLayout.CENTER);
 
         menuArchivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Folder user.png"))); // NOI18N
         menuArchivo.setText("Archivo");
@@ -989,49 +1005,45 @@ public class Frmalmacen extends javax.swing.JFrame {
 
     private void operacionesVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_operacionesVentaActionPerformed
 
-      
-        try{
-                Contenedor.add(nuevaVenta);
-        nuevaVenta.setSize(782,520);
-        nuevaVenta.setVisible(true);
-        }
-        catch(Exception ex){
-            JOptionPane.showMessageDialog(null,"La ventana ya esta abierta");
+        try {
+            Contenedor.add(nuevaVenta);
+            nuevaVenta.setSize(782, 520);
+            nuevaVenta.setVisible(true);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "La ventana ya esta abierta");
             nuevaVenta.dispose();
-        }        
+        }
     }//GEN-LAST:event_operacionesVentaActionPerformed
 
     private void operacionesProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_operacionesProductoActionPerformed
-        try{
-             Contenedor.add(nuevoProducto);
-            nuevoProducto.setSize(530,262);
+        try {
+            Contenedor.add(nuevoProducto);
+            nuevoProducto.setSize(530, 262);
             nuevoProducto.setVisible(true);
-        }
-        catch(Exception ex){
-            JOptionPane.showMessageDialog(null,"La ventana ya esta abierta");
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "La ventana ya esta abierta");
             nuevoProducto.dispose();
-        }   
+        }
     }//GEN-LAST:event_operacionesProductoActionPerformed
 
     private void operacionesClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_operacionesClienteActionPerformed
-        try{
+        try {
             Contenedor.add(nuevoCliente);
-        nuevoCliente.setSize(405,310);
-        nuevoCliente.setVisible(true);
-        }
-        catch(Exception ex){
-            JOptionPane.showMessageDialog(null,"La ventana ya esta abierta");
+            nuevoCliente.setSize(405, 310);
+            nuevoCliente.setVisible(true);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "La ventana ya esta abierta");
             nuevoCliente.dispose();
-        }  
+        }
     }//GEN-LAST:event_operacionesClienteActionPerformed
 
     private void nuevoClienteInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_nuevoClienteInternalFrameOpened
-       
+
     }//GEN-LAST:event_nuevoClienteInternalFrameOpened
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-       
-        
+
+
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnGuardadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardadActionPerformed
@@ -1042,7 +1054,7 @@ public class Frmalmacen extends javax.swing.JFrame {
 //            
 //            
 //        }
-            
+
     }//GEN-LAST:event_btnGuardadActionPerformed
 
     /**
@@ -1084,7 +1096,8 @@ public class Frmalmacen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane Contenedor;
+    private javax.swing.JLabel Contenedor;
+    private javax.swing.JDesktopPane Contenedor1;
     private javax.swing.ButtonGroup GrupoImpuestos;
     private javax.swing.JMenuBar Menu;
     private javax.swing.JTextField NumeroVenta;

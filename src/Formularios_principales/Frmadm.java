@@ -1,4 +1,3 @@
-
 package Formularios_principales;
 
 import Formularios_secundarios.*;
@@ -7,24 +6,33 @@ import Formularios_secundarios.nuevoProducto;
 import Formularios_secundarios.nuevoempleadosalmacen;
 import com.sun.awt.AWTUtilities;
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.Shape;
+import java.awt.Toolkit;
 import java.awt.geom.RoundRectangle2D;
 import javax.swing.JOptionPane;
 
 public class Frmadm extends javax.swing.JFrame {
-    int x,y; 
+
+    int x, y;
+
     public Frmadm() {
-        
+
         this.setUndecorated(true);
         initComponents();
-        
+
         this.setLocationRelativeTo(null);
-        
-         Shape forma = new RoundRectangle2D.Double(0,0,this.getBounds().width,this.getBounds().height,27,27);
-         AWTUtilities.setWindowShape(this, forma);   
-         
+
+        Shape forma = new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 27, 27);
+        AWTUtilities.setWindowShape(this, forma);
+
+    }
+
+    public Image getIconImage() {
+        Image imagen = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("fondo/GyG.png"));
+        return imagen;
     }
 
     /**
@@ -125,12 +133,6 @@ public class Frmadm extends javax.swing.JFrame {
         menuArchivo = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        menuOperaciones = new javax.swing.JMenu();
-        operacionesVenta = new javax.swing.JMenuItem();
-        operacionesProducto = new javax.swing.JMenuItem();
-        operacionesCliente = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
         menuMantenimiento = new javax.swing.JMenu();
         modificarproducto = new javax.swing.JMenuItem();
         modificarcliente = new javax.swing.JMenuItem();
@@ -149,6 +151,12 @@ public class Frmadm extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         nuevoproveedor = new javax.swing.JMenuItem();
         modificarproveedor = new javax.swing.JMenuItem();
+        menuOperaciones = new javax.swing.JMenu();
+        operacionesVenta = new javax.swing.JMenuItem();
+        operacionesProducto = new javax.swing.JMenuItem();
+        operacionesCliente = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         menuAyuda = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
 
@@ -916,7 +924,7 @@ public class Frmadm extends javax.swing.JFrame {
         setTitle("SISTEMA DE GESTIÓN DE VENTA - FERRETERÍA PEPITO");
         setIconImage(getIconImage());
 
-        Contenedor.setBackground(new java.awt.Color(51, 153, 255));
+        Contenedor.setBackground(new java.awt.Color(255, 255, 255));
         Contenedor.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 ContenedorMouseDragged(evt);
@@ -930,28 +938,32 @@ public class Frmadm extends javax.swing.JFrame {
 
         jLabel7.setBackground(new java.awt.Color(153, 204, 255));
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(204, 255, 255));
-        jLabel7.setText("LIBRERIA G&G");
+        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo/Flong.jpg"))); // NOI18N
+        jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout ContenedorLayout = new javax.swing.GroupLayout(Contenedor);
         Contenedor.setLayout(ContenedorLayout);
         ContenedorLayout.setHorizontalGroup(
             ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ContenedorLayout.createSequentialGroup()
-                .addGap(476, 476, 476)
-                .addComponent(jLabel7)
-                .addContainerGap(480, Short.MAX_VALUE))
+            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 1335, Short.MAX_VALUE)
         );
         ContenedorLayout.setVerticalGroup(
             ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ContenedorLayout.createSequentialGroup()
-                .addGap(307, 307, 307)
-                .addComponent(jLabel7)
-                .addContainerGap(333, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorLayout.createSequentialGroup()
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 658, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         Contenedor.setLayer(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
+        jLabel7.getAccessibleContext().setAccessibleParent(this);
+
         getContentPane().add(Contenedor, java.awt.BorderLayout.CENTER);
+
+        Menu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Menu.setForeground(new java.awt.Color(204, 255, 0));
+        Menu.setName(""); // NOI18N
 
         menuArchivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Electric socket.png"))); // NOI18N
         menuArchivo.setText("Inicio");
@@ -981,67 +993,6 @@ public class Frmadm extends javax.swing.JFrame {
         menuArchivo.add(jMenuItem2);
 
         Menu.add(menuArchivo);
-
-        menuOperaciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Box double tape.png"))); // NOI18N
-        menuOperaciones.setText("Operaciones");
-        menuOperaciones.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-
-        operacionesVenta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        operacionesVenta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        operacionesVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Folder docs.png"))); // NOI18N
-        operacionesVenta.setText("Nueva Venta");
-        operacionesVenta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                operacionesVentaActionPerformed(evt);
-            }
-        });
-        menuOperaciones.add(operacionesVenta);
-
-        operacionesProducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        operacionesProducto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        operacionesProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Crate.png"))); // NOI18N
-        operacionesProducto.setText("Nuevo Producto");
-        operacionesProducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                operacionesProductoActionPerformed(evt);
-            }
-        });
-        menuOperaciones.add(operacionesProducto);
-
-        operacionesCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        operacionesCliente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        operacionesCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/User.png"))); // NOI18N
-        operacionesCliente.setText("Nuevo Cliente");
-        operacionesCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                operacionesClienteActionPerformed(evt);
-            }
-        });
-        menuOperaciones.add(operacionesCliente);
-
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Badge Prize.png"))); // NOI18N
-        jMenuItem3.setText("Nuevo Empleado de Almacen");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        menuOperaciones.add(jMenuItem3);
-
-        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Coffee i l ny.png"))); // NOI18N
-        jMenuItem4.setText("Nuevo Empleado de Ventas");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        menuOperaciones.add(jMenuItem4);
-
-        Menu.add(menuOperaciones);
 
         menuMantenimiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Tools.png"))); // NOI18N
         menuMantenimiento.setText("Mantenimiento");
@@ -1218,6 +1169,67 @@ public class Frmadm extends javax.swing.JFrame {
 
         Menu.add(menuReportes);
 
+        menuOperaciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Box double tape.png"))); // NOI18N
+        menuOperaciones.setText("Operaciones");
+        menuOperaciones.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+
+        operacionesVenta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        operacionesVenta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        operacionesVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Folder docs.png"))); // NOI18N
+        operacionesVenta.setText("Nueva Venta");
+        operacionesVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                operacionesVentaActionPerformed(evt);
+            }
+        });
+        menuOperaciones.add(operacionesVenta);
+
+        operacionesProducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        operacionesProducto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        operacionesProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Crate.png"))); // NOI18N
+        operacionesProducto.setText("Nuevo Producto");
+        operacionesProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                operacionesProductoActionPerformed(evt);
+            }
+        });
+        menuOperaciones.add(operacionesProducto);
+
+        operacionesCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        operacionesCliente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        operacionesCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/User.png"))); // NOI18N
+        operacionesCliente.setText("Nuevo Cliente");
+        operacionesCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                operacionesClienteActionPerformed(evt);
+            }
+        });
+        menuOperaciones.add(operacionesCliente);
+
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Badge Prize.png"))); // NOI18N
+        jMenuItem3.setText("Nuevo Empleado de Almacen");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        menuOperaciones.add(jMenuItem3);
+
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Coffee i l ny.png"))); // NOI18N
+        jMenuItem4.setText("Nuevo Empleado de Ventas");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        menuOperaciones.add(jMenuItem4);
+
+        Menu.add(menuOperaciones);
+
         menuAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Orb info.png"))); // NOI18N
         menuAyuda.setText("Ayuda");
         menuAyuda.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -1227,6 +1239,7 @@ public class Frmadm extends javax.swing.JFrame {
             }
         });
 
+        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/System monitoring.png"))); // NOI18N
         jMenuItem7.setText("Informacion ");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1244,27 +1257,27 @@ public class Frmadm extends javax.swing.JFrame {
 
     private void operacionesVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_operacionesVentaActionPerformed
 
-      nuevasVentas vv= new nuevasVentas();
-          ControlaInstanciaV(vv); 
+        nuevasVentas vv = new nuevasVentas();
+        ControlaInstanciaV(vv);
     }//GEN-LAST:event_operacionesVentaActionPerformed
 
     private void operacionesProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_operacionesProductoActionPerformed
-         nuevoProducto anp = new nuevoProducto ();
+        nuevoProducto anp = new nuevoProducto();
         ControlaInstanciaP(anp);
-        
+
     }//GEN-LAST:event_operacionesProductoActionPerformed
-  
+
 
     private void operacionesClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_operacionesClienteActionPerformed
- 
-        nuevoCliente nc = new nuevoCliente();     
+
+        nuevoCliente nc = new nuevoCliente();
         ControlaInstanciaC(nc);
 
-    
+
     }//GEN-LAST:event_operacionesClienteActionPerformed
 
     private void nuevoClienteInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_nuevoClienteInternalFrameOpened
-       
+
     }//GEN-LAST:event_nuevoClienteInternalFrameOpened
 
     private void btnGuardadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardadActionPerformed
@@ -1272,62 +1285,52 @@ public class Frmadm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuardadActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        setVisible(false);  
-    login in1=new login();
-     in1.setVisible(true);
+        setVisible(false);
+        login in1 = new login();
+        in1.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-    System.exit(1); 
+        System.exit(1);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-           nuevoempleadosalmacen ne = new nuevoempleadosalmacen();
-            ControlaInstanciaEA(ne);
+        nuevoempleadosalmacen ne = new nuevoempleadosalmacen();
+        ControlaInstanciaEA(ne);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-    private void ContenedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContenedorMouseClicked
-        x=evt.getX();
-        y=evt.getY(); 
-    }//GEN-LAST:event_ContenedorMouseClicked
-
-    private void ContenedorMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContenedorMouseDragged
-    Point p = MouseInfo.getPointerInfo().getLocation();
-       this.setLocation(p.x-x,p.y-y);
-    }//GEN-LAST:event_ContenedorMouseDragged
-
     private void ventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ventaActionPerformed
-registroVenta rv=new registroVenta();
-this.Contenedor.add(rv);
-rv.show();
+        registroVenta rv = new registroVenta();
+        this.Contenedor.add(rv);
+        rv.show();
     }//GEN-LAST:event_ventaActionPerformed
 
     private void productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productoActionPerformed
-      registroProducto rp=new registroProducto();
-this.Contenedor.add(rp);
-rp.show();
+        registroProducto rp = new registroProducto();
+        this.Contenedor.add(rp);
+        rp.show();
     }//GEN-LAST:event_productoActionPerformed
 
     private void clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteActionPerformed
-    registroCliente rc=new registroCliente();
-this.Contenedor.add(rc);
-rc.show();
+        registroCliente rc = new registroCliente();
+        this.Contenedor.add(rc);
+        rc.show();
     }//GEN-LAST:event_clienteActionPerformed
 
     private void empleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empleadoActionPerformed
-     registroempleados re=new registroempleados();
-this.Contenedor.add(re);
-re.show();
+        registroempleados re = new registroempleados();
+        this.Contenedor.add(re);
+        re.show();
     }//GEN-LAST:event_empleadoActionPerformed
 
     private void modificarproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarproductoActionPerformed
-     modificarProducto mp = new  modificarProducto();
-     ControlaInstanciaMP(mp);
+        modificarProducto mp = new modificarProducto();
+        ControlaInstanciaMP(mp);
     }//GEN-LAST:event_modificarproductoActionPerformed
 
     private void modificarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarclienteActionPerformed
-     modificarCliente mc = new  modificarCliente();
-    ControlaInstanciaMC(mc);
+        modificarCliente mc = new modificarCliente();
+        ControlaInstanciaMC(mc);
     }//GEN-LAST:event_modificarclienteActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
@@ -1336,67 +1339,75 @@ re.show();
 
     private void menuAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAyudaActionPerformed
 
- 
+
     }//GEN-LAST:event_menuAyudaActionPerformed
 
     private void comprobanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprobanteActionPerformed
-      registro_comprobante_pago rcp=new registro_comprobante_pago();
-this.Contenedor.add(rcp);
-rcp.show();
+        registro_comprobante_pago rcp = new registro_comprobante_pago();
+        this.Contenedor.add(rcp);
+        rcp.show();
     }//GEN-LAST:event_comprobanteActionPerformed
 
     private void entradaproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entradaproductoActionPerformed
-   EntradaProducto ep = new EntradaProducto();
-   this.Contenedor.add(ep);
-   ep.show();
+        EntradaProducto ep = new EntradaProducto();
+        this.Contenedor.add(ep);
+        ep.show();
     }//GEN-LAST:event_entradaproductoActionPerformed
 
     private void modificarproveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarproveedorActionPerformed
-modificarProveedor adm5 = new modificarProveedor();
+        modificarProveedor adm5 = new modificarProveedor();
         this.Contenedor.add(adm5);
-        adm5.show();       
+        adm5.show();
     }//GEN-LAST:event_modificarproveedorActionPerformed
 
     private void nuevoproveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoproveedorActionPerformed
-nuevoproveedor np =new nuevoproveedor();
-ControlaInstanciaPR(np);
+        nuevoproveedor np = new nuevoproveedor();
+        ControlaInstanciaPR(np);
     }//GEN-LAST:event_nuevoproveedorActionPerformed
 
     private void mostrarproveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarproveedoresActionPerformed
-        MostrarProveedores mp =new MostrarProveedores();
+        MostrarProveedores mp = new MostrarProveedores();
         this.Contenedor.add(mp);
-        mp.show(); 
+        mp.show();
     }//GEN-LAST:event_mostrarproveedoresActionPerformed
 
     private void devolucionproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_devolucionproductoActionPerformed
-        devolucion_producto dp= new devolucion_producto();
+        devolucion_producto dp = new devolucion_producto();
         this.Contenedor.add(dp);
         dp.show();
     }//GEN-LAST:event_devolucionproductoActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-       nuevoempleadoventa  nev= new nuevoempleadoventa();
-    ControlaInstanciaMEA(nev);
+        nuevoempleadoventa nev = new nuevoempleadoventa();
+        ControlaInstanciaMEA(nev);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-       modificarempleadoventa mode=new modificarempleadoventa();
-ControlaInstanciaMEV(mode);
+        modificarempleadoventa mode = new modificarempleadoventa();
+        ControlaInstanciaMEV(mode);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
 //        modificarempleadoalamacen emp = new modificarempleadoalamacen();
 //        emp.setVisible(true);
-        
-        modificarempleadoalamacen me = new  modificarempleadoalamacen();
-     this.Contenedor.add(me);
-     me.show();
+
+        modificarempleadoalamacen me = new modificarempleadoalamacen();
+        this.Contenedor.add(me);
+        me.show();
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-       informacion1 inf = new informacion1();
+        informacion1 inf = new informacion1();
         ControlInstanciaIN(inf);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void ContenedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContenedorMouseClicked
+
+    }//GEN-LAST:event_ContenedorMouseClicked
+
+    private void ContenedorMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContenedorMouseDragged
+
+    }//GEN-LAST:event_ContenedorMouseDragged
 
     /**
      * @param args the command line arguments
@@ -1566,407 +1577,376 @@ ControlaInstanciaMEV(mode);
     private javax.swing.JMenuItem venta;
     // End of variables declaration//GEN-END:variables
 
-    public void ControlaInstanciaC(nuevoCliente inter){
- 
-boolean mostrar=true;
+    public void ControlaInstanciaC(nuevoCliente inter) {
 
-for (int a=0;a<Contenedor.getComponentCount();a++){     
-    if( inter.getClass().isInstance( Contenedor.getComponent(a) )){
-        JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
-        inter.toFront();
-        Contenedor.moveToFront(inter);
-        mostrar=false;
-        
- 
-    }else{
-        System.out.println("no se puede mostrarse");
-    }
-}
-if(mostrar){
-  
-     nuevoCliente m = new nuevoCliente();
-        Contenedor.add(inter);
-        
-        Dimension desktopSize = Contenedor.getSize();
-        Dimension FrameSize =inter.getSize();
-        inter.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
-        inter.show();
-    
- 
+        boolean mostrar = true;
+
+        for (int a = 0; a < Contenedor.getComponentCount(); a++) {
+            if (inter.getClass().isInstance(Contenedor.getComponent(a))) {
+                JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
+                inter.toFront();
+                Contenedor.moveToFront(inter);
+                mostrar = false;
+
+            } else {
+                System.out.println("no se puede mostrarse");
+            }
+        }
+        if (mostrar) {
+
+            nuevoCliente m = new nuevoCliente();
+            Contenedor.add(inter);
+
+            Dimension desktopSize = Contenedor.getSize();
+            Dimension FrameSize = inter.getSize();
+            inter.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+            inter.show();
+
 //  Contenedor.add(inter); 
-}
-inter.show();
-
-}
-     public void ControlaInstanciaP(nuevoProducto inter){
- 
-boolean mostrar=true;
-
-for (int a=0;a<Contenedor.getComponentCount();a++){     
-    if( inter.getClass().isInstance( Contenedor.getComponent(a) )){
-        JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
-        inter.toFront();
-        Contenedor.moveToFront(inter);
-        mostrar=false;
-        
- 
-    }else{
-        System.out.println("no se puede mostrarse");
-    }
-}
-if(mostrar){
-  
-     nuevoCliente m = new nuevoCliente();
-        Contenedor.add(inter);
-        
-        Dimension desktopSize = Contenedor.getSize();
-        Dimension FrameSize =inter.getSize();
-        inter.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
+        }
         inter.show();
-    
- 
-//  Contenedor.add(inter); 
-}
-inter.show();
 
-}
-
-     public void ControlaInstanciaEA(nuevoempleadosalmacen inter){
- 
-boolean mostrar=true;
-
-for (int a=0;a<Contenedor.getComponentCount();a++){     
-    if( inter.getClass().isInstance( Contenedor.getComponent(a) )){
-        JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
-        inter.toFront();
-        Contenedor.moveToFront(inter);
-        mostrar=false;
-        
- 
-    }else{
-        System.out.println("no se puede mostrarse");
     }
-}
-if(mostrar){
-  
-     nuevoCliente m = new nuevoCliente();
-        Contenedor.add(inter);
-        
-        Dimension desktopSize = Contenedor.getSize();
-        Dimension FrameSize =inter.getSize();
-        inter.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
-        inter.show();
-    
- 
+
+    public void ControlaInstanciaP(nuevoProducto inter) {
+
+        boolean mostrar = true;
+
+        for (int a = 0; a < Contenedor.getComponentCount(); a++) {
+            if (inter.getClass().isInstance(Contenedor.getComponent(a))) {
+                JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
+                inter.toFront();
+                Contenedor.moveToFront(inter);
+                mostrar = false;
+
+            } else {
+                System.out.println("no se puede mostrarse");
+            }
+        }
+        if (mostrar) {
+
+            nuevoCliente m = new nuevoCliente();
+            Contenedor.add(inter);
+
+            Dimension desktopSize = Contenedor.getSize();
+            Dimension FrameSize = inter.getSize();
+            inter.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+            inter.show();
+
 //  Contenedor.add(inter); 
-}
-inter.show();
+        }
+        inter.show();
 
-}
-        public void ControlaInstanciaV(nuevasVentas inter){
- 
-boolean mostrar=true;
-
-for (int a=0;a<Contenedor.getComponentCount();a++){     
-    if( inter.getClass().isInstance( Contenedor.getComponent(a) )){
-        JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
-        inter.toFront();
-        Contenedor.moveToFront(inter);
-        mostrar=false;
-        
- 
-    }else{
-        System.out.println("no se puede mostrarse");
     }
-}
-if(mostrar){
-  
-     nuevoCliente m = new nuevoCliente();
-        Contenedor.add(inter);
-        
-        Dimension desktopSize = Contenedor.getSize();
-        Dimension FrameSize =inter.getSize();
-        inter.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
-        inter.show();
-    
- 
+
+    public void ControlaInstanciaEA(nuevoempleadosalmacen inter) {
+
+        boolean mostrar = true;
+
+        for (int a = 0; a < Contenedor.getComponentCount(); a++) {
+            if (inter.getClass().isInstance(Contenedor.getComponent(a))) {
+                JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
+                inter.toFront();
+                Contenedor.moveToFront(inter);
+                mostrar = false;
+
+            } else {
+                System.out.println("no se puede mostrarse");
+            }
+        }
+        if (mostrar) {
+
+            nuevoCliente m = new nuevoCliente();
+            Contenedor.add(inter);
+
+            Dimension desktopSize = Contenedor.getSize();
+            Dimension FrameSize = inter.getSize();
+            inter.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+            inter.show();
+
 //  Contenedor.add(inter); 
-}
-inter.show();
+        }
+        inter.show();
 
-}
-        
-       public void ControlaInstanciaPR(nuevoproveedor inter){
- 
-boolean mostrar=true;
-
-for (int a=0;a<Contenedor.getComponentCount();a++){     
-    if( inter.getClass().isInstance( Contenedor.getComponent(a) )){
-        JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
-        inter.toFront();
-        Contenedor.moveToFront(inter);
-        mostrar=false;
-        
- 
-    }else{
-        System.out.println("no se puede mostrarse");
     }
-}
-if(mostrar){
-  
-     nuevoCliente m = new nuevoCliente();
-        Contenedor.add(inter);
-        
-        Dimension desktopSize = Contenedor.getSize();
-        Dimension FrameSize =inter.getSize();
-        inter.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
-        inter.show();
-    
- 
+
+    public void ControlaInstanciaV(nuevasVentas inter) {
+
+        boolean mostrar = true;
+
+        for (int a = 0; a < Contenedor.getComponentCount(); a++) {
+            if (inter.getClass().isInstance(Contenedor.getComponent(a))) {
+                JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
+                inter.toFront();
+                Contenedor.moveToFront(inter);
+                mostrar = false;
+
+            } else {
+                System.out.println("no se puede mostrarse");
+            }
+        }
+        if (mostrar) {
+
+            nuevoCliente m = new nuevoCliente();
+            Contenedor.add(inter);
+
+            Dimension desktopSize = Contenedor.getSize();
+            Dimension FrameSize = inter.getSize();
+            inter.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+            inter.show();
+
 //  Contenedor.add(inter); 
-}
-inter.show();
+        }
+        inter.show();
 
-}
-    public void ControlaInstanciaNEV(nuevoempleadoventa inter){
- 
-boolean mostrar=true;
-
-for (int a=0;a<Contenedor.getComponentCount();a++){     
-    if( inter.getClass().isInstance( Contenedor.getComponent(a) )){
-        JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
-        inter.toFront();
-        Contenedor.moveToFront(inter);
-        mostrar=false;
-        
- 
-    }else{
-        System.out.println("no se puede mostrarse");
     }
-}
-if(mostrar){
-  
-     nuevoCliente m = new nuevoCliente();
-        Contenedor.add(inter);
-        
-        Dimension desktopSize = Contenedor.getSize();
-        Dimension FrameSize =inter.getSize();
-        inter.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
-        inter.show();
-    
- 
-//  Contenedor.add(inter); 
-}
-inter.show();
-       
-       
-}
-    
-        public void ControlaInstanciaMP(modificarProducto inter){
- 
-boolean mostrar=true;
 
-for (int a=0;a<Contenedor.getComponentCount();a++){     
-    if( inter.getClass().isInstance( Contenedor.getComponent(a) )){
-        JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
-        inter.toFront();
-        Contenedor.moveToFront(inter);
-        mostrar=false;
-        
- 
-    }else{
-        System.out.println("no se puede mostrarse");
+    public void ControlaInstanciaPR(nuevoproveedor inter) {
+
+        boolean mostrar = true;
+
+        for (int a = 0; a < Contenedor.getComponentCount(); a++) {
+            if (inter.getClass().isInstance(Contenedor.getComponent(a))) {
+                JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
+                inter.toFront();
+                Contenedor.moveToFront(inter);
+                mostrar = false;
+
+            } else {
+                System.out.println("no se puede mostrarse");
+            }
+        }
+        if (mostrar) {
+
+            nuevoCliente m = new nuevoCliente();
+            Contenedor.add(inter);
+
+            Dimension desktopSize = Contenedor.getSize();
+            Dimension FrameSize = inter.getSize();
+            inter.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+            inter.show();
+
+//  Contenedor.add(inter); 
+        }
+        inter.show();
+
     }
-}
-if(mostrar){
-  
-     nuevoCliente m = new nuevoCliente();
-        Contenedor.add(inter);
-        
-        Dimension desktopSize = Contenedor.getSize();
-        Dimension FrameSize =inter.getSize();
-        inter.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
-        inter.show();
-    
- 
-//  Contenedor.add(inter); 
-}
-inter.show();
-       
-       
-}
-        public void ControlaInstanciaMC(modificarCliente inter){
- 
-boolean mostrar=true;
 
-for (int a=0;a<Contenedor.getComponentCount();a++){     
-    if( inter.getClass().isInstance( Contenedor.getComponent(a) )){
-        JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
-        inter.toFront();
-        Contenedor.moveToFront(inter);
-        mostrar=false;
-        
- 
-    }else{
-        System.out.println("no se puede mostrarse");
+    public void ControlaInstanciaNEV(nuevoempleadoventa inter) {
+
+        boolean mostrar = true;
+
+        for (int a = 0; a < Contenedor.getComponentCount(); a++) {
+            if (inter.getClass().isInstance(Contenedor.getComponent(a))) {
+                JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
+                inter.toFront();
+                Contenedor.moveToFront(inter);
+                mostrar = false;
+
+            } else {
+                System.out.println("no se puede mostrarse");
+            }
+        }
+        if (mostrar) {
+
+            nuevoCliente m = new nuevoCliente();
+            Contenedor.add(inter);
+
+            Dimension desktopSize = Contenedor.getSize();
+            Dimension FrameSize = inter.getSize();
+            inter.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+            inter.show();
+
+//  Contenedor.add(inter); 
+        }
+        inter.show();
+
     }
-}
-if(mostrar){
-  
-     nuevoCliente m = new nuevoCliente();
-        Contenedor.add(inter);
-        
-        Dimension desktopSize = Contenedor.getSize();
-        Dimension FrameSize =inter.getSize();
-        inter.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
-        inter.show();
-    
- 
-//  Contenedor.add(inter); 
-}
-inter.show();
-       
-       
-}
-              public void ControlaInstanciaMEA(nuevoempleadoventa inter){
- 
-boolean mostrar=true;
 
-for (int a=0;a<Contenedor.getComponentCount();a++){     
-    if( inter.getClass().isInstance( Contenedor.getComponent(a) )){
-        JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
-        inter.toFront();
-        Contenedor.moveToFront(inter);
-        mostrar=false;
-        
- 
-    }else{
-        System.out.println("no se puede mostrarse");
+    public void ControlaInstanciaMP(modificarProducto inter) {
+
+        boolean mostrar = true;
+
+        for (int a = 0; a < Contenedor.getComponentCount(); a++) {
+            if (inter.getClass().isInstance(Contenedor.getComponent(a))) {
+                JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
+                inter.toFront();
+                Contenedor.moveToFront(inter);
+                mostrar = false;
+
+            } else {
+                System.out.println("no se puede mostrarse");
+            }
+        }
+        if (mostrar) {
+
+            nuevoCliente m = new nuevoCliente();
+            Contenedor.add(inter);
+
+            Dimension desktopSize = Contenedor.getSize();
+            Dimension FrameSize = inter.getSize();
+            inter.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+            inter.show();
+
+//  Contenedor.add(inter); 
+        }
+        inter.show();
+
     }
-}
-if(mostrar){
-  
-     nuevoCliente m = new nuevoCliente();
-        Contenedor.add(inter);
-        
-        Dimension desktopSize = Contenedor.getSize();
-        Dimension FrameSize =inter.getSize();
-        inter.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
-        inter.show();
-    
- 
+
+    public void ControlaInstanciaMC(modificarCliente inter) {
+
+        boolean mostrar = true;
+
+        for (int a = 0; a < Contenedor.getComponentCount(); a++) {
+            if (inter.getClass().isInstance(Contenedor.getComponent(a))) {
+                JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
+                inter.toFront();
+                Contenedor.moveToFront(inter);
+                mostrar = false;
+
+            } else {
+                System.out.println("no se puede mostrarse");
+            }
+        }
+        if (mostrar) {
+
+            nuevoCliente m = new nuevoCliente();
+            Contenedor.add(inter);
+
+            Dimension desktopSize = Contenedor.getSize();
+            Dimension FrameSize = inter.getSize();
+            inter.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+            inter.show();
+
 //  Contenedor.add(inter); 
-}
-inter.show();
+        }
+        inter.show();
 
-
-
-}
-   public void ControlaInstanciaMEV(modificarempleadoventa inter){
- 
-boolean mostrar=true;
-
-for (int a=0;a<Contenedor.getComponentCount();a++){     
-    if( inter.getClass().isInstance( Contenedor.getComponent(a) )){
-        JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
-        inter.toFront();
-        Contenedor.moveToFront(inter);
-        mostrar=false;
-        
- 
-    }else{
-        System.out.println("no se puede mostrarse");
     }
-}
-if(mostrar){
-  
-     nuevoCliente m = new nuevoCliente();
-        Contenedor.add(inter);
-        
-        Dimension desktopSize = Contenedor.getSize();
-        Dimension FrameSize =inter.getSize();
-        inter.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
-        inter.show();
-    
- 
+
+    public void ControlaInstanciaMEA(nuevoempleadoventa inter) {
+
+        boolean mostrar = true;
+
+        for (int a = 0; a < Contenedor.getComponentCount(); a++) {
+            if (inter.getClass().isInstance(Contenedor.getComponent(a))) {
+                JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
+                inter.toFront();
+                Contenedor.moveToFront(inter);
+                mostrar = false;
+
+            } else {
+                System.out.println("no se puede mostrarse");
+            }
+        }
+        if (mostrar) {
+
+            nuevoCliente m = new nuevoCliente();
+            Contenedor.add(inter);
+
+            Dimension desktopSize = Contenedor.getSize();
+            Dimension FrameSize = inter.getSize();
+            inter.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+            inter.show();
+
 //  Contenedor.add(inter); 
-}
-inter.show();
+        }
+        inter.show();
 
-
-
-}            
-              
-                 public void ControlInstanciaMEAS(modificarempleadoventa inter){
- 
-boolean mostrar=true;
-
-for (int a=0;a<Contenedor.getComponentCount();a++){     
-    if( inter.getClass().isInstance( Contenedor.getComponent(a) )){
-        JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
-        inter.toFront();
-        Contenedor.moveToFront(inter);
-        mostrar=false;
-        
- 
-    }else{
-        System.out.println("no se puede mostrarse");
     }
-}
-if(mostrar){
-  
-     nuevoCliente m = new nuevoCliente();
-        Contenedor.add(inter);
-        
-        Dimension desktopSize = Contenedor.getSize();
-        Dimension FrameSize =inter.getSize();
-        inter.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
-        inter.show();
-    
- 
+
+    public void ControlaInstanciaMEV(modificarempleadoventa inter) {
+
+        boolean mostrar = true;
+
+        for (int a = 0; a < Contenedor.getComponentCount(); a++) {
+            if (inter.getClass().isInstance(Contenedor.getComponent(a))) {
+                JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
+                inter.toFront();
+                Contenedor.moveToFront(inter);
+                mostrar = false;
+
+            } else {
+                System.out.println("no se puede mostrarse");
+            }
+        }
+        if (mostrar) {
+
+            nuevoCliente m = new nuevoCliente();
+            Contenedor.add(inter);
+
+            Dimension desktopSize = Contenedor.getSize();
+            Dimension FrameSize = inter.getSize();
+            inter.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+            inter.show();
+
 //  Contenedor.add(inter); 
-}
-inter.show();
+        }
+        inter.show();
 
-
-
-}
-
-                 
-                 public void ControlInstanciaIN(informacion1 inter){
- 
-boolean mostrar=true;
-
-for (int a=0;a<Contenedor.getComponentCount();a++){     
-    if( inter.getClass().isInstance( Contenedor.getComponent(a) )){
-        JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
-        inter.toFront();
-        Contenedor.moveToFront(inter);
-        mostrar=false;
-        
- 
-    }else{
-        System.out.println("no se puede mostrarse");
     }
-}
-if(mostrar){
-  
-     nuevoCliente m = new nuevoCliente();
-        Contenedor.add(inter);
-        
-        Dimension desktopSize = Contenedor.getSize();
-        Dimension FrameSize =inter.getSize();
-        inter.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
-        inter.show();
-    
- 
+
+    public void ControlInstanciaMEAS(modificarempleadoventa inter) {
+
+        boolean mostrar = true;
+
+        for (int a = 0; a < Contenedor.getComponentCount(); a++) {
+            if (inter.getClass().isInstance(Contenedor.getComponent(a))) {
+                JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
+                inter.toFront();
+                Contenedor.moveToFront(inter);
+                mostrar = false;
+
+            } else {
+                System.out.println("no se puede mostrarse");
+            }
+        }
+        if (mostrar) {
+
+            nuevoCliente m = new nuevoCliente();
+            Contenedor.add(inter);
+
+            Dimension desktopSize = Contenedor.getSize();
+            Dimension FrameSize = inter.getSize();
+            inter.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+            inter.show();
+
 //  Contenedor.add(inter); 
+        }
+        inter.show();
+
+    }
+
+    public void ControlInstanciaIN(informacion1 inter) {
+
+        boolean mostrar = true;
+
+        for (int a = 0; a < Contenedor.getComponentCount(); a++) {
+            if (inter.getClass().isInstance(Contenedor.getComponent(a))) {
+                JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
+                inter.toFront();
+                Contenedor.moveToFront(inter);
+                mostrar = false;
+
+            } else {
+                System.out.println("no se puede mostrarse");
+            }
+        }
+        if (mostrar) {
+
+            nuevoCliente m = new nuevoCliente();
+            Contenedor.add(inter);
+
+            Dimension desktopSize = Contenedor.getSize();
+            Dimension FrameSize = inter.getSize();
+            inter.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+            inter.show();
+
+//  Contenedor.add(inter); 
+        }
+        inter.show();
+
+    }
+
 }
-inter.show();
-
-
-
-                 }                
-  
-}
-     
