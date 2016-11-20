@@ -272,7 +272,7 @@ public class login extends javax.swing.JFrame {
                 cnn = conexion.conectar();
                 Statement st = cnn.createStatement();
                 //realizamos la consulta
-//                ResultSet rs=st.executeQuery("SELECT * FROM cuentaUsuario WHERE usuario='"+usuario+"' AND contrasena ='"+contrasena+"'AND tipo='"+tipousuario+"'");
+                ResultSet rs=st.executeQuery("SELECT * FROM cuentaUsuario WHERE usuario='"+usuario+"' AND contrasena ='"+contrasena+"'");
                 //nos posicionamos en el último registro
 //                rs.last();
 
