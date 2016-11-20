@@ -8,12 +8,12 @@ import javax.swing.JOptionPane;
  */
 public class conexion {
     
-    static String bd = "libreria";   
+    static String bd = "libreriagyg";   
     static String login = "root"; 
     static String password = "lomito";
     static String url = "jdbc:mysql://localhost/"+bd;
     static Connection conn = null;
-    static Statement st=null;
+    static Statement st=null; 
     
     public static Connection conectar() {
         try {
