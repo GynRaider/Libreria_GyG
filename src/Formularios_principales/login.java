@@ -260,7 +260,7 @@ public class login extends javax.swing.JFrame {
         Connection cnn;
         String usuario;
         String contrasena;
-//        String tipousuario = tipoUsuario.getSelectedItem().toString();
+        String tipoAcceso = null;
 
         usuario = jTextField1.getText();
         contrasena = jPasswordField1.getText();
@@ -272,40 +272,45 @@ public class login extends javax.swing.JFrame {
                 cnn = conexion.conectar();
                 Statement st = cnn.createStatement();
                 //realizamos la consulta
-                ResultSet rs=st.executeQuery("SELECT * FROM cuentaUsuario WHERE usuario='"+usuario+"' AND contrasena ='"+contrasena+"'");
+                ResultSet rs=st.executeQuery("SELECT * FROM usuarios WHERE usuario='"+usuario+"' AND contrasena ='"+contrasena+"'");
+                
                 //nos posicionamos en el último registro
-//                rs.last();
-
+                rs.last();
+                
                 //recuperamos el número de registros del ResultSet
-//                int encontrado = rs.getRow();
-//                if(encontrado==1){ //si nos devuelve un registro, significa que la autenticación es correcta y mostramos el formulario
-//                    if(tipousuario.equals("ADMINISTRADOR")){
-//                        Frmadm adm = new Frmadm();
-//                        this.setVisible(false);
-//                        adm.setVisible(true);
-//                        JOptionPane.showMessageDialog(null,"Bienvenido "+usuario);
-//                    }else{
-//                        if(tipousuario.equals("EMPLEADO")){
-//                            Frmvendedor emp = new Frmvendedor();
-//                            this.setVisible(false);
-//                            emp.setVisible(true);
-//                            JOptionPane.showMessageDialog(null,"Bienvenido "+usuario);
-//                        }else{
-//                            Frmalmacen alm = new Frmalmacen();
-//                            this.setVisible(false);
-//                            alm.setVisible(true);
-//                            JOptionPane.showMessageDialog(null,"Bienvenido "+usuario);
-//                        }
-//                    }
-//
-//                }else{
-//                    JOptionPane.showMessageDialog(null,"Datos incorrectos");
-//                }
+                int encontrado = rs.getRow();
+                
+                if(encontrado==1){ //si nos devuelve un registro, significa que la autenticación es correcta y mostramos el formulario
+                    tipoAcceso = rs.getString("tipoAcceso");
+                
+                    if(tipoAcceso.equals("Administrador")){
+                        Frmadm adm = new Frmadm();
+                        this.setVisible(false);
+                        adm.setVisible(true);
+                        JOptionPane.showMessageDialog(null,"Bienvenido "+usuario);
+                    }else{
+                        if(tipoAcceso.equals("Personal de ventas")){
+                            Frmvendedor vend = new Frmvendedor();
+                            this.setVisible(false);
+                            vend.setVisible(true);
+                            JOptionPane.showMessageDialog(null,"Bienvenido "+usuario);
+                        }else{
+                            if(tipoAcceso.equals("Personal de almacén")){
+                                Frmalmacen alm = new Frmalmacen();
+                                this.setVisible(false);
+                                alm.setVisible(true);
+                                JOptionPane.showMessageDialog(null,"Bienvenido "+usuario);
+                            }
+                        }
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(null,"Datos incorrectos");
+                }
                 //cerramos la conexión
-//                rs.close();
-//                st.close();
+                rs.close();
+                st.close();
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Conexion con la base de datos fallida");
+                JOptionPane.showMessageDialog(null, "Conexion con la base de datos fallida" + e);
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
