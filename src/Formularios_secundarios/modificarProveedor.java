@@ -188,10 +188,11 @@ public class modificarProveedor extends javax.swing.JInternalFrame {
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel26)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(numero))
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(numero, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel26)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(11, 11, 11)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -200,17 +201,14 @@ public class modificarProveedor extends javax.swing.JInternalFrame {
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel30)
                     .addComponent(nombreProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel31)
-                            .addComponent(celularProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(docProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))))
+                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel31)
+                        .addComponent(celularProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(docProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1)))
                 .addGap(14, 14, 14)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(direccionProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -319,53 +317,56 @@ public class modificarProveedor extends javax.swing.JInternalFrame {
         
         int celular, documento;
         
-        try {
-            if (buscar.equals("Código de Proveedor")) {
-                sql  = "select * from proveedores where codProveedor  = '"+cod_doc+"'";
-            } else {
-                sql  = "select * from proveedores where documento  = '"+cod_doc+"'";
+        if (cod_doc.equals("")) {
+            JOptionPane.showMessageDialog(null,"Ingrese un documento o código del proveedor");
+        } else {
+            try {
+                if (buscar.equals("Código de Proveedor")) {
+                    sql  = "select * from proveedores where codProveedor  = '"+cod_doc+"'";
+                } else {
+                    sql  = "select * from proveedores where documento  = '"+cod_doc+"'";
+                }
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery(sql);
+
+                if(rs.next()){
+                    JOptionPane.showMessageDialog(null,"Proveedor encontrado");
+
+                    codProveedor = rs.getString("codProveedor");
+                    nombre = rs.getString("nombre");
+                    documento = rs.getInt("documento");
+                    direccion = rs.getString("direccion");
+                    correo = rs.getString("correo");
+                    celular = rs.getInt("celular");
+
+                    jComboBox1.setEnabled(false);
+                    numero.setEnabled(false);
+                    nombreProveedor.setEnabled(true);
+                    celularProveedor.setEnabled(true);
+                    docProveedor.setEnabled(true);
+                    direccionProveedor.setEnabled(true);
+                    correoProveedor.setEnabled(true);
+                    jButton1.setEnabled(false);
+                    jButton2.setEnabled(true);
+
+                    codigoProveedor.setText(codProveedor);
+                    nombreProveedor.setText(nombre);
+                    celularProveedor.setText(Integer.toString(celular));
+                    docProveedor.setText(Integer.toString(documento));
+                    direccionProveedor.setText(direccion);
+                    correoProveedor.setText(correo);
+                }else{
+                    JOptionPane.showMessageDialog(null,"El proveedor no existe o el número ingresado es incorrecto");
+                }
+                rs.close();
+                st.close();
+                con.close();
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null,ex);
             }
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            
-            if(rs.next()){
-                JOptionPane.showMessageDialog(null,"Proveedor encontrado");
-                
-                codProveedor = rs.getString("codProveedor");
-                nombre = rs.getString("nombre");
-                documento = rs.getInt("documento");
-                direccion = rs.getString("direccion");
-                correo = rs.getString("correo");
-                celular = rs.getInt("celular");
-                
-                jComboBox1.setEnabled(false);
-                numero.setEnabled(false);
-                nombreProveedor.setEnabled(true);
-                celularProveedor.setEnabled(true);
-                docProveedor.setEnabled(true);
-                direccionProveedor.setEnabled(true);
-                correoProveedor.setEnabled(true);
-                jButton1.setEnabled(false);
-                jButton2.setEnabled(true);
-                
-                codigoProveedor.setText(codProveedor);
-                nombreProveedor.setText(nombre);
-                celularProveedor.setText(Integer.toString(celular));
-                docProveedor.setText(Integer.toString(documento));
-                direccionProveedor.setText(direccion);
-                correoProveedor.setText(correo);
-            }else{
-                JOptionPane.showMessageDialog(null,"El proveedor no existe o el número ingresado es incorrecto");
-            }
-            rs.close();
-            st.close();
-            con.close();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,ex);
         }
         
         
-                
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void celularProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_celularProveedorActionPerformed
@@ -406,9 +407,7 @@ public class modificarProveedor extends javax.swing.JInternalFrame {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
-        
-                
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void docProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_docProveedorActionPerformed

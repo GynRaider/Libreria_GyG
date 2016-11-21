@@ -1272,8 +1272,7 @@ public class Frmadm extends javax.swing.JFrame {
 
         nuevoCliente nc = new nuevoCliente();
         ControlaInstanciaC(nc);
-
-
+        
     }//GEN-LAST:event_operacionesClienteActionPerformed
 
     private void nuevoClienteInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_nuevoClienteInternalFrameOpened
