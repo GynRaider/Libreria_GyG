@@ -109,9 +109,9 @@ public class nuevoproveedor extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton1)
                     .addComponent(btnGuardad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JBT_Limpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(JBT_Limpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -295,7 +295,7 @@ public class nuevoproveedor extends javax.swing.JInternalFrame {
     private void JBT_LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBT_LimpiarActionPerformed
         nombreProveedor.setText("");
         docProveedor.setText("");
-       correoProveedor.setText("");
+        correoProveedor.setText("");
         direccionProveedor.setText("");
         telefonoProveedor.setText("");
         
@@ -314,7 +314,7 @@ public class nuevoproveedor extends javax.swing.JInternalFrame {
         documento = Integer.parseInt(docProveedor.getText());
         celular = Integer.parseInt(telefonoProveedor.getText());
         try {
-            CallableStatement cst = con.prepareCall("CALL insertar_proveedor(?,?,?,?,?)");
+            CallableStatement cst = con.prepareCall("CALL insertar_proveedores(?,?,?,?,?)");
             cst.setString(1,nombre);
             cst.setInt(2,documento);
             cst.setString(3,direccion);
