@@ -474,7 +474,7 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
                 celular,
                 dia, mes, año,
                 sexofail = sexoCliente.getSelectedIndex();
-                
+
         String
                 nombre = nombreCliente.getText(),
                 apellido = apellidoCliente.getText(),
@@ -484,7 +484,7 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
                 email = correoCliente.getText(),
                 fecha;
         
-        if (nombre.equals("") || apellido.equals("") || direccion.equals("") || email.equals("") || sexofail == -1 || nacCliente.getDate()==null) {
+        if (nombre.equals("") || apellido.equals("") || direccion.equals("") || email.equals("") || sexofail == -1 || nacCliente.getDate()==null || docCliente.getText().equals("")) {
             JOptionPane.showMessageDialog(null,"Complete todos los campos");
         } else {
             
@@ -502,56 +502,79 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
             celular = Integer.parseInt(tlfCliente.getText());
             
             try {
-                //Insertar registro a la tabla personas
-                cnn = conexion.conectar();
-
-                CallableStatement cst = cnn.prepareCall("Call insertar_personas(?,?,?,?,?,?,?,?,?)");
-                cst.setString(1,nombre);
-                cst.setString(2,apellido);
-                cst.setInt(3,dni);
-                cst.setString(4,sexo);
-                cst.setString(5,fecha);
-                cst.setString(6,direccion);
-                cst.setInt(7,celular);
-                cst.setString(8,email);
-                cst.setString(9,"0");
+                Statement st = cnn.createStatement();
+                ResultSet rs = st.executeQuery("Select * from personas where DNI = "+dni);
+                rs.last();
                 
-                JOptionPane.showMessageDialog(null,"registro exitoso(?)");
-////                Insertar registro a la tabla clientes
-//                Statement st = cnn.createStatement();
-//                ResultSet rs = st.executeQuery("Select * from personas where DNI = '"+dni+"'");
-//                rs.last();
-//                
-//                int encontrado = rs.getRow();
-//                
-//                if (encontrado == 1) {
-//                    String codPersona = rs.getString("codPersona");
-//                    
-//                    try {
-//                        CallableStatement cliente = cnn.prepareCall("Call insertar_cliente(?,?)");
-//                        cliente.setString(1,codPersona);
-//                        if (jCheckBox1.isSelected()) {
-//                            cliente.setString(2,ruc);
-//                        } else {
-//                            cliente.setString(2,"Sin ruc");
-//                        }
-//                        cliente.close();
-//                    } catch (SQLException e) {
-//                        JOptionPane.showMessageDialog(null,e);
-//                    }
-//                    
-//                } else {
-//                    JOptionPane.showMessageDialog(null,"No se encontró el dni en la tabla personas");
-//                }
-//                
-//                
-//                rs.close();
-//                st.close();
-                cnn.close();
+                int found = rs.getRow();
+                
+                if (found == 1) {
+                    JOptionPane.showMessageDialog(null,"El documento ya existe en la base de datos");
+                } else {
+                    try {
+                        //Insertar registro a la tabla personas
+                        cnn = conexion.conectar();
+
+                        CallableStatement cst = cnn.prepareCall("Call insertar_personas(?,?,?,?,?,?,?,?,?)");
+                        cst.setString(1,nombre);
+                        cst.setString(2,apellido);
+                        cst.setInt(3,dni);
+                        cst.setString(4,sexo);
+                        cst.setString(5,fecha);
+                        cst.setString(6,direccion);
+                        cst.setInt(7,celular);
+                        cst.setString(8,email); 
+                        cst.setString(9,"0");
+                        cst.execute();
+
+                        JOptionPane.showMessageDialog(null,"Registrado correctamente");
+
+        //              Insertar registro a la tabla clientes
+                        Statement st2 = cnn.createStatement();
+                        ResultSet rs2 = st2.executeQuery("Select * from personas where DNI = "+dni);
+                        rs2.last();
+
+                        int encontrado = rs2.getRow();
+
+                        if (encontrado == 1) {
+                            String codPersona = rs2.getString("codPersona");
+
+                            try {
+                                CallableStatement cliente = cnn.prepareCall("Call insertar_cliente(?,?)");
+                                cliente.setString(1,codPersona);
+                                if (jCheckBox1.isSelected()) {
+                                    cliente.setString(2,ruc);
+                                } else {
+                                    cliente.setString(2,"Sin ruc");
+                                }
+                                cliente.execute();
+                            } catch (SQLException e) {
+                                JOptionPane.showMessageDialog(null,e);
+                            }
+
+                        } else {
+                            JOptionPane.showMessageDialog(null,"No se encontró el dni en la tabla personas");
+                        }
+
+                        rs2.close();
+                        st2.close();
+                        cnn.close();
+                    } catch (SQLException e) {
+                        JOptionPane.showMessageDialog(null,e);
+                    }
+                    
+                }
+                st.close();
+                rs.close();
             } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null,e);
+                JOptionPane.showMessageDialog(null, e);
             }
             
+            
+            
+            
+            
+
         }
         
     }//GEN-LAST:event_btnGuardadActionPerformed
