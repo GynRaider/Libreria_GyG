@@ -305,17 +305,17 @@ public class nuevoproveedor extends javax.swing.JInternalFrame {
     private void btnGuardadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardadActionPerformed
         Connection con;
         con = conexion.conectar();
-        String nombre, direccion,email;
+        String nombreprov, direccion,email;
         int documento,celular;
         
-        nombre = nombreProveedor.getText();
+        nombreprov = nombreProveedor.getText();
         direccion = direccionProveedor.getText();
         email = correoProveedor.getText();
         documento = Integer.parseInt(docProveedor.getText());
         celular = Integer.parseInt(telefonoProveedor.getText());
         try {
             CallableStatement cst = con.prepareCall("CALL insertar_proveedores(?,?,?,?,?)");
-            cst.setString(1,nombre);
+            cst.setString(1,nombreprov);
             cst.setInt(2,documento);
             cst.setString(3,direccion);
             cst.setString(4,email);

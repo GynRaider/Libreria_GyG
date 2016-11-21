@@ -58,9 +58,10 @@ public class registroProducto extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "ID PRODUCTO", "ID PROVEEDOR", "NOMBRE", "PRECIO ", "STOCK"
+                "Código", "Nombre", "Marca", "Precio", "Stock", "Numero Almacen"
             }
         ));
+        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -71,10 +72,11 @@ public class registroProducto extends javax.swing.JInternalFrame {
                 .addGap(61, 61, 61)
                 .addComponent(jButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton1)
+                .addGap(127, 127, 127))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -93,7 +95,7 @@ public class registroProducto extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-           this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -102,29 +104,35 @@ public class registroProducto extends javax.swing.JInternalFrame {
         ResultSet r;
 
         String 
-                idproducto,
-                idprove,
-                nombre, 
-                marca;
+                codProducto,
+                nombre,
+                marca,
+                numeroAlmacen;
         int
                 stock;
         
         double precio;
         DefaultTableModel tabla= (DefaultTableModel) jTable1.getModel();
+                
+        for (int i = 0; i < jTable1.getRowCount(); i++) {
+             tabla.removeRow(i);
+             i-=1;
+         }
+        
        try{
 
            CallableStatement cts = con.prepareCall("CALL mostrar_producto_almacen");
            r=cts.executeQuery();
            
            while (r.next()){
-               idproducto=r.getString("id_producto");
-               idprove=r.getString("id_proveedor");
+               codProducto=r.getString("codProducto");
                nombre=r.getString("nombre");
-               marca = r.getString("marca");
+               marca=r.getString("marca");
                precio = r.getDouble("precio");
                stock = r.getInt("stock");
+               numeroAlmacen = r.getString("numeroAlmacen");
               
-               tabla.addRow( new Object[] {idproducto, idprove, nombre, marca,precio,stock} );
+               tabla.addRow( new Object[] {codProducto, nombre, marca, precio,stock,numeroAlmacen} );
             }
 
        }catch (Exception e){

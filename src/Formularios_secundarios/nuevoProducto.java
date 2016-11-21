@@ -27,6 +27,13 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     /**
      * Creates new form nuevoProducto
      */
+    public void limpiar(){
+        nombreProducto.setText("");
+        marcaProducto.setText("");
+        precioProducto.setText("");
+        n_almacen.setText("");
+        stock.setValue(0);
+    }
     
     public nuevoProducto() {
         ocultarBarraTitulo() ;
@@ -326,11 +333,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void JBT_LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBT_LimpiarActionPerformed
-
-        nombreProducto.setText("");
-        marcaProducto.setText("");
-        precioProducto.setText("");
-
+        limpiar();
     }//GEN-LAST:event_JBT_LimpiarActionPerformed
 
     private void btnGuardadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardadActionPerformed
@@ -355,6 +358,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             cst.setInt(5,numero);
             cst.execute();
             
+            limpiar();
             JOptionPane.showMessageDialog(null,"Nuevo producto añadido");
             cst.close();
             con.close();
