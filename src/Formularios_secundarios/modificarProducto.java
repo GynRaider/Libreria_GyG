@@ -323,52 +323,52 @@ public class modificarProducto extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_JBT_LimpiarActionPerformed
 
     private void btnGuardadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardadActionPerformed
-        //        String
-        //        nombre = nombreCliente.getText(),
-        //        apellido = apellidoCliente.getText(),
-        //        direccion = dirCliente.getText(),
-        //        correo = correoCliente.getText(),
-        //        documento = docCliente.getText(),
-        //        telefono = tlfCliente.getText();
-        //
-        //        cnn = conexion.conectar();
-        //
-        //        if (nombre.equals("")||apellido.equals("")||direccion.equals("")||correo.equals("")||documento.equals("")||telefono.equals("")) {
-            //            JOptionPane.showMessageDialog(null,"Por favor, complete todos los campos.");
-            //        } else {
-            //            try {
-                //                Statement st = cnn.createStatement();
-                //                ResultSet rs = st.executeQuery("SELECT * FROM cliente WHERE documento='"+documento+"'");
-                //                rs.last();
-                //
-                //                int encontrado = rs.getRow();
-                //
-                //                if (encontrado==1) {
-                    //                    JOptionPane.showMessageDialog(null,"Documento ya existente. Consulte la base de datos.");
-                    //                    st.close();
-                    //                    rs.close();
-                    //                } else {
-                    //                    try {
-                        //                        CallableStatement cst = cnn.prepareCall("CALL insertar_clientes(?,?,?,?,?,?)");
-                        //                        cst.setString(1,nombre);
-                        //                        cst.setString(2,apellido);
-                        //                        cst.setInt(3,Integer.parseInt(documento));
-                        //                        cst.setString(4,correo);
-                        //                        cst.setInt(5,Integer.parseInt(telefono));
-                        //                        cst.setString(6,direccion);
-                        //                        cst.execute();
-                        //                        JOptionPane.showMessageDialog(null,"Nuevo cliente ingresado.");
-                        //
-                        //                    } catch (SQLException e) {
-                        //                        JOptionPane.showMessageDialog(null,e);
-                        //                    }
-                    //                }
-                //
-                //                cnn.close();
-                //            } catch (SQLException e) {
-                //                JOptionPane.showMessageDialog(null,e);
-                //            }
-            //        }
+//                String
+//                nombre = nombreCliente.getText(),
+//                apellido = apellidoCliente.getText(),
+//                direccion = dirCliente.getText(),
+//                correo = correoCliente.getText(),
+//                documento = docCliente.getText(),
+//                telefono = tlfCliente.getText();
+//        
+//                cnn = conexion.conectar();
+//        
+//                if (nombre.equals("")||apellido.equals("")||direccion.equals("")||correo.equals("")||documento.equals("")||telefono.equals("")) {
+//                        JOptionPane.showMessageDialog(null,"Por favor, complete todos los campos.");
+//                    } else {
+//                        try {
+//                                Statement st = cnn.createStatement();
+//                                ResultSet rs = st.executeQuery("SELECT * FROM cliente WHERE documento='"+documento+"'");
+//                                rs.last();
+//                
+//                                int encontrado = rs.getRow();
+//                
+//                                if (encontrado==1) {
+//                                        JOptionPane.showMessageDialog(null,"Documento ya existente. Consulte la base de datos.");
+//                                        st.close();
+//                                        rs.close();
+//                                    } else {
+//                                        try {
+//                                                CallableStatement cst = cnn.prepareCall("CALL insertar_clientes(?,?,?,?,?,?)");
+//                                                cst.setString(1,nombre);
+//                                                cst.setString(2,apellido);
+//                                                cst.setInt(3,Integer.parseInt(documento));
+//                                                cst.setString(4,correo);
+//                                                cst.setInt(5,Integer.parseInt(telefono));
+//                                                cst.setString(6,direccion);
+//                                                cst.execute();
+//                                                JOptionPane.showMessageDialog(null,"Nuevo cliente ingresado.");
+//                        
+//                                            } catch (SQLException e) {
+//                                                JOptionPane.showMessageDialog(null,e);
+//                                            }
+//                                    }
+//                
+//                                cnn.close();
+//                            } catch (SQLException e) {
+//                                JOptionPane.showMessageDialog(null,e);
+//                            }
+//                    }
     }//GEN-LAST:event_btnGuardadActionPerformed
 public void ocultarBarraTitulo()
 { 

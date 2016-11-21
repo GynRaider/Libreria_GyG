@@ -19,6 +19,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Calendar;
 import javax.swing.JComponent;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
@@ -39,11 +40,14 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
      * Creates new form nuevoCliente
      */
     public nuevoCliente() {
+        
             
         ocultarBarraTitulo() ;
 //        ((BasicInternalFrameUI) this.getUI()).setNorthPane(null);
 //         
         initComponents();
+        
+        
         
        
         try {
@@ -110,6 +114,12 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
         nombreCliente = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
         apellidoCliente = new javax.swing.JTextField();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        rucCliente = new javax.swing.JTextField();
+        jLabel35 = new javax.swing.JLabel();
+        sexoCliente = new javax.swing.JComboBox();
+        jLabel37 = new javax.swing.JLabel();
+        nacCliente = new com.toedter.calendar.JDateChooser();
         jLabel36 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -163,18 +173,16 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel31)
+                    .addComponent(jLabel33, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel34, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel31)
-                        .addGap(18, 18, 18)
-                        .addComponent(tlfCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel33)
-                            .addComponent(jLabel34))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(correoCliente)
-                            .addComponent(dirCliente))))
+                        .addComponent(tlfCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(correoCliente)
+                    .addComponent(dirCliente))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -233,6 +241,32 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
             }
         });
 
+        jCheckBox1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox1.setText("RUC");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+
+        rucCliente.setEnabled(false);
+
+        jLabel35.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel35.setText("Sexo:");
+
+        sexoCliente.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Femenino" }));
+        sexoCliente.setSelectedIndex(-1);
+        sexoCliente.setToolTipText("");
+
+        jLabel37.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel37.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel37.setText("Fecha Nacimiento:");
+
+        nacCliente.setToolTipText("");
+        nacCliente.setDateFormatString("yyyy/MM/dd");
+
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
@@ -250,12 +284,26 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
                         .addComponent(docCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addComponent(jLabel30)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(nombreCliente))
                     .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addComponent(jLabel32)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(apellidoCliente)))
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel32)
+                            .addComponent(jLabel35))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addComponent(sexoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jCheckBox1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rucCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(apellidoCliente)))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addComponent(jLabel37)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nacCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel10Layout.setVerticalGroup(
@@ -271,10 +319,20 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel30)
                     .addComponent(nombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel32)
                     .addComponent(apellidoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBox1)
+                    .addComponent(rucCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel35)
+                    .addComponent(sexoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel37)
+                    .addComponent(nacCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -334,9 +392,9 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton1)
                     .addComponent(JBT_Limpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGuardad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnGuardad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -356,7 +414,7 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(166, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel36)
                 .addGap(163, 163, 163))
             .addGroup(jPanel4Layout.createSequentialGroup()
@@ -364,7 +422,7 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
         );
@@ -373,16 +431,16 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGap(13, 13, 13)
                 .addComponent(jLabel36)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
+                        .addGap(18, 18, 18)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -411,70 +469,91 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardadActionPerformed
+        int
+                dni,
+                celular,
+                dia, mes, año,
+                sexofail = sexoCliente.getSelectedIndex();
+                
         String
                 nombre = nombreCliente.getText(),
                 apellido = apellidoCliente.getText(),
+                sexo,
+                ruc = rucCliente.getText(),
                 direccion = dirCliente.getText(),
-                correo = correoCliente.getText(),
-                documento = docCliente.getText(),
-                telefono = tlfCliente.getText();
+                email = correoCliente.getText(),
+                fecha;
         
-        cnn = conexion.conectar();
-
-        if (nombre.equals("")||apellido.equals("")||direccion.equals("")||correo.equals("")||documento.equals("")||telefono.equals("")) {
-            JOptionPane.showMessageDialog(null,"Por favor, complete todos los campos.");
+        if (nombre.equals("") || apellido.equals("") || direccion.equals("") || email.equals("") || sexofail == -1 || nacCliente.getDate()==null) {
+            JOptionPane.showMessageDialog(null,"Complete todos los campos");
         } else {
-            try {
-                Statement st = cnn.createStatement();
-                ResultSet rs = st.executeQuery("SELECT * FROM cliente WHERE documento='"+documento+"'");
-                rs.last();
-                
-                int encontrado = rs.getRow();
+            
+            dia = nacCliente.getCalendar().get(Calendar.DAY_OF_MONTH);
+            mes = nacCliente.getCalendar().get(Calendar.MONTH);
+            año = nacCliente.getCalendar().get(Calendar.YEAR);
+            fecha = año + "-" + mes + "-" + dia;
 
-                if (encontrado==1) {
-                    JOptionPane.showMessageDialog(null,"Documento ya existente. Consulte la base de datos.");
-                    st.close();
-                    rs.close();
-                } else {
-                    try {
-                        CallableStatement cst = cnn.prepareCall("CALL insertar_clientes(?,?,?,?,?,?)");
-                        cst.setString(1,nombre);
-                        cst.setString(2,apellido);
-                        cst.setInt(3,Integer.parseInt(documento));
-                        cst.setString(4,correo);
-                        cst.setInt(5,Integer.parseInt(telefono));
-                        cst.setString(6,direccion);
-                        cst.execute();
-                        JOptionPane.showMessageDialog(null,"Nuevo cliente ingresado.");
-                        
-                        
-                        try {
-                            Statement st2 = cnn.createStatement();
-                            ResultSet rs2 = st2.executeQuery("SELECT * FROM cliente WHERE documento='"+documento+"'");
-                            rs2.last();
-                        
-                            int encontrado2 = rs2.getRow();
-                            
-                            if (encontrado2 == 1) {
-                                JOptionPane.showMessageDialog(null,"Nuevo ID para el Cliente con documento "+documento+":\n"+rs2.getString("id_cliente"));
-                            } else {
-                                JOptionPane.showMessageDialog(null,"Corrige esto!");
-                            }
-                        } catch (SQLException e) {
-                            JOptionPane.showMessageDialog(null,e);
-                        }                        
-                        rs.close();
-                        st.close();
-                    } catch (SQLException e) {
-                        JOptionPane.showMessageDialog(null,e);
-                    }   
-                }
+            if(sexoCliente.getSelectedItem().equals("masculino")){
+                sexo = "M";
+            }else{
+                sexo = "F";
+            }
+            dni = Integer.parseInt(docCliente.getText());
+            celular = Integer.parseInt(tlfCliente.getText());
+            
+            try {
+                //Insertar registro a la tabla personas
+                cnn = conexion.conectar();
+
+                CallableStatement cst = cnn.prepareCall("Call insertar_personas(?,?,?,?,?,?,?,?,?)");
+                cst.setString(1,nombre);
+                cst.setString(2,apellido);
+                cst.setInt(3,dni);
+                cst.setString(4,sexo);
+                cst.setString(5,fecha);
+                cst.setString(6,direccion);
+                cst.setInt(7,celular);
+                cst.setString(8,email);
+                cst.setString(9,"0");
                 
+                JOptionPane.showMessageDialog(null,"registro exitoso(?)");
+////                Insertar registro a la tabla clientes
+//                Statement st = cnn.createStatement();
+//                ResultSet rs = st.executeQuery("Select * from personas where DNI = '"+dni+"'");
+//                rs.last();
+//                
+//                int encontrado = rs.getRow();
+//                
+//                if (encontrado == 1) {
+//                    String codPersona = rs.getString("codPersona");
+//                    
+//                    try {
+//                        CallableStatement cliente = cnn.prepareCall("Call insertar_cliente(?,?)");
+//                        cliente.setString(1,codPersona);
+//                        if (jCheckBox1.isSelected()) {
+//                            cliente.setString(2,ruc);
+//                        } else {
+//                            cliente.setString(2,"Sin ruc");
+//                        }
+//                        cliente.close();
+//                    } catch (SQLException e) {
+//                        JOptionPane.showMessageDialog(null,e);
+//                    }
+//                    
+//                } else {
+//                    JOptionPane.showMessageDialog(null,"No se encontró el dni en la tabla personas");
+//                }
+//                
+//                
+//                rs.close();
+//                st.close();
                 cnn.close();
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null,e);
             }
+            
         }
+        
     }//GEN-LAST:event_btnGuardadActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -520,6 +599,14 @@ docCliente.setText("");
         // TODO add your handling code here:
     }//GEN-LAST:event_apellidoClienteActionPerformed
 
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        if(jCheckBox1.isSelected()){
+            rucCliente.setEnabled(true);
+        }else{
+            rucCliente.setEnabled(false);
+        }
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
 public void ocultarBarraTitulo()
 { 
 Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane(); 
@@ -539,6 +626,7 @@ repaint();
     private javax.swing.JTextField dirCliente;
     private javax.swing.JTextField docCliente;
     private javax.swing.JButton jButton1;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
@@ -547,13 +635,18 @@ repaint();
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private com.toedter.calendar.JDateChooser nacCliente;
     private javax.swing.JTextField nombreCliente;
+    private javax.swing.JTextField rucCliente;
+    private javax.swing.JComboBox sexoCliente;
     private javax.swing.JTextField tlfCliente;
     private javax.swing.JTextField txtCodigo;
     // End of variables declaration//GEN-END:variables
