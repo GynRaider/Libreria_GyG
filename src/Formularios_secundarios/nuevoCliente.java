@@ -19,6 +19,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Types;
 import java.util.Calendar;
 import javax.swing.JComponent;
 import javax.swing.JInternalFrame;
@@ -476,7 +477,7 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
     private void btnGuardadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardadActionPerformed
         int
                 dni,
-                celular,
+                celular=0,
                 dia, mes, año,
                 sexofail = sexoCliente.getSelectedIndex();
 
@@ -505,8 +506,11 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
             }
             
             dni = Integer.parseInt(docCliente.getText());
-            celular = Integer.parseInt(tlfCliente.getText());
             
+            if (!tlfCliente.getText().equals("")) {
+                celular = Integer.parseInt(tlfCliente.getText());
+            }
+                                    
             try {
                 Statement st = cnn.createStatement();
                 ResultSet rs = st.executeQuery("Select * from personas where DNI = "+dni);
@@ -528,9 +532,15 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
                         cst.setString(4,sexo);
                         cst.setString(5,fecha);
                         cst.setString(6,direccion);
-                        cst.setInt(7,celular);
+                        
+                        if (tlfCliente.getText().isEmpty()) {
+                            cst.setNull(7,Types.INTEGER);
+                        } else {
+                            cst.setInt(7,celular);
+                        }
+                        
                         cst.setString(8,email); 
-                        cst.setString(9,"F");
+                        cst.setString(9,"0");
                         cst.execute();
 
                         JOptionPane.showMessageDialog(null,"Registrado correctamente");
