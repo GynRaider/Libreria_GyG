@@ -858,7 +858,7 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
                                  cst2.setDouble(4,Double.parseDouble((String) jTable1.getValueAt(i,3)));
                                  cst2.execute();
                              }catch(SQLException ex){
-                                 JOptionPane.showMessageDialog(null,"asdfsd");
+                                 JOptionPane.showMessageDialog(null,ex);
                              }
                          }
                          

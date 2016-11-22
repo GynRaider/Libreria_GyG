@@ -155,7 +155,6 @@ public class Frmadm extends javax.swing.JFrame {
         operacionesVenta = new javax.swing.JMenuItem();
         operacionesProducto = new javax.swing.JMenuItem();
         operacionesCliente = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         menuAyuda = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
@@ -972,7 +971,7 @@ public class Frmadm extends javax.swing.JFrame {
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0));
         jMenuItem1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Player back.png"))); // NOI18N
-        jMenuItem1.setText("Cerrar Seccion ");
+        jMenuItem1.setText("Cerrar Sesión ");
         jMenuItem1.setToolTipText("");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1206,21 +1205,10 @@ public class Frmadm extends javax.swing.JFrame {
         });
         menuOperaciones.add(operacionesCliente);
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Badge Prize.png"))); // NOI18N
-        jMenuItem3.setText("Nuevo Empleado de Almacen");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        menuOperaciones.add(jMenuItem3);
-
         jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Coffee i l ny.png"))); // NOI18N
-        jMenuItem4.setText("Nuevo Empleado de Ventas");
+        jMenuItem4.setText("Nuevo Empleado");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem4ActionPerformed(evt);
@@ -1256,7 +1244,6 @@ public class Frmadm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void operacionesVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_operacionesVentaActionPerformed
-
         nuevasVentas vv = new nuevasVentas();
         ControlaInstanciaV(vv);
     }//GEN-LAST:event_operacionesVentaActionPerformed
@@ -1292,11 +1279,6 @@ public class Frmadm extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         System.exit(1);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        nuevoempleadosalmacen ne = new nuevoempleadosalmacen();
-        ControlaInstanciaEA(ne);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void ventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ventaActionPerformed
         registroVenta rv = new registroVenta();
@@ -1514,7 +1496,6 @@ public class Frmadm extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;

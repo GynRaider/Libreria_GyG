@@ -55,13 +55,7 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"error al conectar a la base de datos");
         }
-        
-        
- 
-          
-           
-          
-          
+
            RestrictedTextField nc = new RestrictedTextField(nombreCliente); 
            nc.setLimit(40);
            
@@ -105,6 +99,8 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
         dirCliente = new javax.swing.JTextField();
         correoCliente = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
@@ -166,6 +162,10 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
         jLabel34.setForeground(new java.awt.Color(255, 255, 255));
         jLabel34.setText("Correo :");
 
+        jLabel1.setText("(opcional)");
+
+        jLabel2.setText("(opcional)");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -177,13 +177,16 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
                     .addComponent(jLabel33, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel34, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(tlfCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(correoCliente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1))
+                    .addComponent(correoCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
                     .addComponent(dirCliente))
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,7 +194,8 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31)
-                    .addComponent(tlfCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tlfCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel33)
@@ -199,7 +203,8 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(correoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -406,7 +411,7 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
                 .addComponent(JBT_Limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -484,8 +489,8 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
                 email = correoCliente.getText(),
                 fecha;
         
-        if (nombre.equals("") || apellido.equals("") || direccion.equals("") || email.equals("") || sexofail == -1 || nacCliente.getDate()==null || docCliente.getText().equals("")) {
-            JOptionPane.showMessageDialog(null,"Complete todos los campos");
+        if (nombre.equals("") || apellido.equals("") || direccion.equals("") || sexofail == -1 || nacCliente.getDate()==null || docCliente.getText().equals("")) {
+            JOptionPane.showMessageDialog(null,"Complete los campos necesarios");
         } else {
             
             dia = nacCliente.getCalendar().get(Calendar.DAY_OF_MONTH);
@@ -498,6 +503,7 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
             }else{
                 sexo = "F";
             }
+            
             dni = Integer.parseInt(docCliente.getText());
             celular = Integer.parseInt(tlfCliente.getText());
             
@@ -524,7 +530,7 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
                         cst.setString(6,direccion);
                         cst.setInt(7,celular);
                         cst.setString(8,email); 
-                        cst.setString(9,"0");
+                        cst.setString(9,"F");
                         cst.execute();
 
                         JOptionPane.showMessageDialog(null,"Registrado correctamente");
@@ -569,12 +575,6 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
-            
-            
-            
-            
-            
-
         }
         
     }//GEN-LAST:event_btnGuardadActionPerformed
@@ -584,14 +584,12 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void JBT_LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBT_LimpiarActionPerformed
-nombreCliente.setText("");
-apellidoCliente.setText("");
-dirCliente.setText("");
-correoCliente.setText("");
-tlfCliente.setText("");  
-docCliente.setText("");
-
-    
+        nombreCliente.setText("");
+        apellidoCliente.setText("");
+        dirCliente.setText("");
+        correoCliente.setText("");
+        tlfCliente.setText("");  
+        docCliente.setText("");
     }//GEN-LAST:event_JBT_LimpiarActionPerformed
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
@@ -651,6 +649,8 @@ repaint();
     private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel30;
