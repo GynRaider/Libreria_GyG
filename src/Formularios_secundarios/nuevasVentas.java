@@ -11,6 +11,7 @@ import conexion.conexion;
 import java.awt.Dimension;
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -718,22 +719,33 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
                 celularcliente;
         
         try {
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM cliente where id_cliente='"+codCliente.getText()+"'");
-
-            if (rs.next()) {
-                nombrecliente = rs.getString("nombre");
-                apellidocliente = rs.getString("apellido");
-                doccliente = rs.getInt("documento");
-                celularcliente = rs.getInt("celular");
-                dircliente = rs.getString("direccion");
-                
-                npCliente.setText(nombrecliente+" "+apellidocliente);
-                docCliente.setText(Integer.toString(doccliente));
+            CallableStatement cst = con.prepareCall("Call buscar_cliente(?,?,?,?,?,?,?,?)");
+            
+            cst.setString(1,codCliente.getText());
+            cst.registerOutParameter(2, java.sql.Types.VARCHAR);
+            cst.registerOutParameter(3, java.sql.Types.VARCHAR);
+            cst.registerOutParameter(4, java.sql.Types.VARCHAR);
+            cst.registerOutParameter(5, java.sql.Types.VARCHAR);
+            cst.registerOutParameter(6, java.sql.Types.INTEGER);
+            cst.registerOutParameter(7, java.sql.Types.INTEGER);
+            cst.registerOutParameter(8, java.sql.Types.VARCHAR);
+            cst.execute();
+            
+            nombrecliente = cst.getString(4);
+            apellidocliente = cst.getString(5);
+            doccliente = cst.getInt(6);
+            celularcliente = cst.getInt(7);
+            dircliente = cst.getString(8);            
+            
+            npCliente.setText(nombrecliente+" "+apellidocliente);
+            docCliente.setText(Integer.toString(doccliente));
+            if(celularcliente == 0){
+                celularCliente.setText("Sin número");
+            }else{
                 celularCliente.setText(Integer.toString(celularcliente));
-                dirCliente.setText(dircliente);
-            }           
-          
+            }
+            dirCliente.setText(dircliente);
+
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null,e);
         }
@@ -757,7 +769,7 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
         }else{
             try {
                 Statement st = con.createStatement();
-                ResultSet rs = st.executeQuery("SELECT * FROM almacen where id_producto='"+idProducto.getText()+"'");
+                ResultSet rs = st.executeQuery("SELECT * FROM almacen where codProducto='"+idProducto.getText()+"'");
 
                 if (rs.next()) {
                     nombreproducto = rs.getString("nombre");
@@ -835,8 +847,9 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
         } else {
             if (npCliente.getText().equals("")) {
                 int result = JOptionPane.showConfirmDialog(null,"No se ha ingresado un cliente.\n¿Seguro que desea realizar la operación?",null, JOptionPane.YES_NO_OPTION);
-                 if(result == JOptionPane.YES_OPTION) {
-                     try {
+                
+                if(result == JOptionPane.YES_OPTION) {
+                    try {
                          CallableStatement cst = con.prepareCall("CALL insertar_registro_ventas(?,?,?,?)");
                          cst.setString(1,"NoRegistro");
                          cst.setString(2,idvendedor);
@@ -845,10 +858,10 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
                          cst.execute();
                          
                          Statement st = con.createStatement();
-                         ResultSet rs = st.executeQuery("SELECT * FROM registro_ventas WHERE id_empleado ='"+idvendedor+"'");
+                         ResultSet rs = st.executeQuery("SELECT * FROM registro_ventas WHERE idPersonalVentas ='"+idvendedor+"'");
                          rs.last();
                          
-                         String idregistroventa = rs.getString("id_regventas");
+                         String idregistroventa = rs.getString("codRegVentas");
                          
                          for (int i = 0; i < jTable1.getRowCount(); i++) {
                              try (CallableStatement cst2 = con.prepareCall("CALL insertar_detalle_venta(?,?,?,?)")) {
@@ -860,7 +873,43 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
                              }catch(SQLException ex){
                                  JOptionPane.showMessageDialog(null,ex);
                              }
+                             
+                             //Actualizar el stock almacen
+                             Statement sto = con.createStatement();
+                             ResultSet rso = sto.executeQuery("SELECT * FROM almacen WHERE codProducto = '"+(String) jTable1.getValueAt(i,0)+"'");
+                             rso.last();
+                             
+                             int  
+                                     stock = rso.getInt("stock"),
+                                     cantidad = (int) jTable1.getValueAt(i,2),
+                                     nuevoStock;
+                             
+                             nuevoStock = stock - cantidad;
+                             
+                             try {
+                                PreparedStatement pst = con.prepareStatement("UPDATE almacen SET stock  = "+nuevoStock+" WHERE codProducto = '"+(String) jTable1.getValueAt(i,0)+"'");
+
+                                if(pst.executeUpdate() > 0){
+                                    if (i== jTable1.getRowCount()) {
+                                        JOptionPane.showMessageDialog(null, "El nuevo stock del producto ha sido actualizado", "Operación Exitosa",
+                                                JOptionPane.INFORMATION_MESSAGE);
+                                    }
+                                }else{
+                                    JOptionPane.showMessageDialog(null, "No se ha podido realizar la actualización de los datos\n"
+                                                                  + "Inténtelo nuevamente.", "Error en la operación", 
+                                                                  JOptionPane.ERROR_MESSAGE);
+                                }
+                                rso.close();
+                                sto.close();
+                                pst.close();
+                            } catch (SQLException ex) {
+                                JOptionPane.showMessageDialog(null,"Error actualizando la tabla almacen "+ex);
+                            }
+                            //aquí termina el codigo de actualizar stock
+                             
                          }
+                         
+                         
                          
                          JOptionPane.showMessageDialog(null,"Registro guardado");
                          
@@ -894,10 +943,10 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
                          cst.execute();
                          
                          Statement st = con.createStatement();
-                         ResultSet rs = st.executeQuery("SELECT * FROM registro_ventas WHERE id_empleado ='"+idvendedor+"'");
+                         ResultSet rs = st.executeQuery("SELECT * FROM registro_ventas WHERE idPersonalVentas ='"+idvendedor+"'");
                          rs.last();
                          
-                         String idregistroventa = rs.getString("id_regventas");
+                         String idregistroventa = rs.getString("codRegVentas");
                          
                          for (int i = 0; i < jTable1.getRowCount(); i++) {
                              try (CallableStatement cst2 = con.prepareCall("CALL insertar_detalle_venta(?,?,?,?)")) {
@@ -907,8 +956,41 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
                                  cst2.setDouble(4,Double.parseDouble((String) jTable1.getValueAt(i,3)));
                                  cst2.execute();
                              }catch(SQLException ex){
-                                 JOptionPane.showMessageDialog(null,"asdfsd");
+                                 JOptionPane.showMessageDialog(null,ex);
                              }
+
+
+                             //Actualizar el stock almacen
+                             Statement sta = con.createStatement();
+                             ResultSet rsa = sta.executeQuery("SELECT * FROM almacen WHERE codProducto = '"+(String) jTable1.getValueAt(i,0)+"'");
+                             rsa.last();
+                             
+                             int  
+                                     stock = rsa.getInt("stock"),
+                                     cantidad = (int) jTable1.getValueAt(i,2),
+                                     nuevoStock;
+                             
+                             nuevoStock = stock - cantidad;
+                             
+                             try {
+                                PreparedStatement pst = con.prepareStatement("UPDATE almacen SET stock  = "+nuevoStock+" WHERE codProducto = '"+(String) jTable1.getValueAt(i,0)+"'");
+
+                                if(pst.executeUpdate() > 0){
+                                    if (i== jTable1.getRowCount()) {
+                                        JOptionPane.showMessageDialog(null, "El nuevo stock del producto ha sido actualizado", "Operación Exitosa",
+                                                JOptionPane.INFORMATION_MESSAGE);
+                                    }
+                                }else{
+                                    JOptionPane.showMessageDialog(null, "No se ha podido realizar la actualización de los datos\n"
+                                                                  + "Inténtelo nuevamente.", "Error en la operación", 
+                                                                  JOptionPane.ERROR_MESSAGE);
+                                }
+
+                                pst.close();
+                            } catch (SQLException ex) {
+                                JOptionPane.showMessageDialog(null,"Error actualizando la tabla almacen "+ex);
+                            }
+                            //aquí termina el codigo de actualizar stock
                          }
                          
                          JOptionPane.showMessageDialog(null,"Registro guardado");
@@ -951,36 +1033,52 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null,"Ingrese su código");
         } else {
             try {
-                Statement st = con.createStatement();
-                ResultSet rs = st.executeQuery("SELECT * FROM empleado_almacen WHERE id_empleadoalmacen='"+txt_codVendedor.getText()+"'");
-                rs.last();
+                String nombrePventas, apellidoPventas;
+                CallableStatement cst = con.prepareCall("Call buscar_pventas(?,?,?,?,?,?)");
+            
+                cst.setInt(1,Integer.parseInt(txt_codVendedor.getText()));
+                cst.registerOutParameter(2, java.sql.Types.INTEGER);
+                cst.registerOutParameter(3, java.sql.Types.VARCHAR);
+                cst.registerOutParameter(4, java.sql.Types.VARCHAR);
+                cst.registerOutParameter(5, java.sql.Types.VARCHAR);
+                cst.registerOutParameter(6, java.sql.Types.INTEGER);
+                cst.execute();
+
+                nombrePventas = cst.getString(5);
+                apellidoPventas = cst.getString(6);
                 
-                int encontrado = rs.getRow();
+                txt_nombreVendedor.setText(nombrePventas + " " + apellidoPventas);
                 
-                if(encontrado == 1){
-                    txt_nombreVendedor.setText(rs.getString("nombre")+ " " +rs.getString("apellido"));
-                }else{
-                    try {
-                        Statement st2 = con.createStatement();
-                        ResultSet rs2 = st2.executeQuery("SELECT * FROM vendedor WHERE id_empleado='"+txt_codVendedor.getText()+"'");
-                        rs2.last();
-
-                        int encontrado2 = rs2.getRow();
-
-                        if (encontrado2==1) {
-                            txt_nombreVendedor.setText(rs2.getString("nombre")+ " " +rs2.getString("apellido"));
-
-                        } else {
-                            JOptionPane.showMessageDialog(null,"Usuario inexistente");
-                        }
-                        rs2.close();
-                        st.close();
-                    } catch (SQLException e) {
-                        JOptionPane.showMessageDialog(null,e);
-                    }
-                }
-                rs.close();
-                st.close();
+//                Statement st = con.createStatement();
+//                ResultSet rs = st.executeQuery("SELECT * FROM empleado_almacen WHERE id_empleadoalmacen='"+txt_codVendedor.getText()+"'");
+//                rs.last();
+//                
+//                int encontrado = rs.getRow();
+//                
+//                if(encontrado == 1){
+//                    txt_nombreVendedor.setText(rs.getString("nombre")+ " " +rs.getString("apellido"));
+//                }else{
+//                    try {
+//                        Statement st2 = con.createStatement();
+//                        ResultSet rs2 = st2.executeQuery("SELECT * FROM vendedor WHERE id_empleado='"+txt_codVendedor.getText()+"'");
+//                        rs2.last();
+//
+//                        int encontrado2 = rs2.getRow();
+//
+//                        if (encontrado2==1) {
+//                            txt_nombreVendedor.setText(rs2.getString("nombre")+ " " +rs2.getString("apellido"));
+//
+//                        } else {
+//                            JOptionPane.showMessageDialog(null,"Usuario inexistente");
+//                        }
+//                        rs2.close();
+//                        st.close();
+//                    } catch (SQLException e) {
+//                        JOptionPane.showMessageDialog(null,e);
+//                    }
+//                }
+//                rs.close();
+//                st.close();
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null,ex);
             }

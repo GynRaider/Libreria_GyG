@@ -6,6 +6,7 @@
 package Formularios_secundarios;
 
 import conexion.conexion;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -435,40 +436,120 @@ public class registroVenta extends javax.swing.JInternalFrame {
         cn = conexion.conectar();
 
         Statement st;
+        DefaultTableModel tabla2 = (DefaultTableModel) jTable1.getModel();
+                
+        for (int i = 0; i < jTable1.getRowCount(); i++) {
+             tabla2.removeRow(i);
+             i-=1;
+         }
+        
         try {
             st = cn.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM registro_ventas WHERE id_regventas = '"+idventa.getText()+"'");
+            ResultSet rs = st.executeQuery("SELECT * FROM registro_ventas WHERE codRegVentas = '"+idventa.getText()+"'");
             
             if (rs.next()) {
-                idcliente.setText(rs.getString("id_cliente"));
-                idempleado.setText(rs.getString("id_empleado"));
+                idcliente.setText(rs.getString("codCliente"));
+                idempleado.setText(rs.getString("idPersonalVentas"));
                 fecha.setText(rs.getString("fecha"));
                 
-                if(rs.getString("cancelado").equals("Cancelado")){
+                if(rs.getString("cancelado").equals("cancelado")){
                     jCheckBox1.setSelected(true);
                 }else{
                     jCheckBox1.setSelected(false);
                 }
                 
                 try {
-                    Statement st2 = cn.createStatement();
-                    try (ResultSet rs2 = st2.executeQuery("SELECT * FROM cliente WHERE id_cliente ='"+idcliente.getText()+"'")) {
-                        if(rs2.next()){
-                            nombrecliente.setText(rs2.getString("nombre")+" "+rs2.getString("apellido"));
-                            doccliente.setText(Integer.toString(rs2.getInt("documento")));
-                            telefonocliente.setText(Integer.toString(rs2.getInt("celular")));
-                            dircliente.setText(rs2.getString("direccion"));
+                    
+                    //clliente
+
+                    String codcliente,
+                            nombreCliente,
+                            apellidocliente,
+                            dirCliente;
+                    int
+                            docCliente,
+                            celularcliente;
+//        
+                    try {
+                        CallableStatement cst = cn.prepareCall("Call buscar_cliente(?,?,?,?,?,?,?,?)");
+
+                        cst.setString(1,idcliente.getText());
+                        cst.registerOutParameter(2, java.sql.Types.VARCHAR);
+                        cst.registerOutParameter(3, java.sql.Types.VARCHAR);
+                        cst.registerOutParameter(4, java.sql.Types.VARCHAR);
+                        cst.registerOutParameter(5, java.sql.Types.VARCHAR);
+                        cst.registerOutParameter(6, java.sql.Types.INTEGER);
+                        cst.registerOutParameter(7, java.sql.Types.INTEGER);
+                        cst.registerOutParameter(8, java.sql.Types.VARCHAR);
+                        cst.execute();
+
+                        nombreCliente = cst.getString(4);
+                        apellidocliente = cst.getString(5);
+                        docCliente = cst.getInt(6);
+                        celularcliente = cst.getInt(7);
+                        dirCliente = cst.getString(8);            
+
+                        nombrecliente.setText(nombreCliente+" "+apellidocliente);
+                        doccliente.setText(Integer.toString(docCliente));
+                        if(celularcliente == 0){
+                            telefonocliente.setText("Sin número");
+                        }else{
+                            telefonocliente.setText(Integer.toString(celularcliente));
                         }
+                        dircliente.setText(dirCliente);
+
+                    } catch (SQLException e) {
+                        JOptionPane.showMessageDialog(null,e);
                     }
                     
-                    Statement st3 = cn.createStatement();
-                    try (ResultSet rs3 = st3.executeQuery("SELECT * FROM vendedor WHERE id_empleado ='"+idempleado.getText()+"'")) {
-                        if(rs3.next()){
-                            nombrevendedor.setText(rs3.getString("nombre")+" "+rs3.getString("apellido"));
-                        }
+                    //antiguo
+//                    Statement st2 = cn.createStatement();
+//                    try (ResultSet rs2 = st2.executeQuery("SELECT * FROM cliente WHERE id_cliente ='"+idcliente.getText()+"'")) {
+//                        if(rs2.next()){
+//                            nombrecliente.setText(rs2.getString("nombre")+" "+rs2.getString("apellido"));
+//                            doccliente.setText(Integer.toString(rs2.getInt("documento")));
+//                            telefonocliente.setText(Integer.toString(rs2.getInt("celular")));
+//                            dircliente.setText(rs2.getString("direccion"));
+//                        }
+//                    }
+                    
+                    //termina codigo cilente
+                    
+                    //vendedor
+                    try {
+                        String nombrePventas, apellidoPventas;
+                        CallableStatement cst = cn.prepareCall("Call buscar_pventas(?,?,?,?,?,?)");
+
+                        cst.setInt(1,Integer.parseInt(idempleado.getText()));
+                        cst.registerOutParameter(2, java.sql.Types.INTEGER);
+                        cst.registerOutParameter(3, java.sql.Types.VARCHAR);
+                        cst.registerOutParameter(4, java.sql.Types.VARCHAR);
+                        cst.registerOutParameter(5, java.sql.Types.VARCHAR);
+                        cst.registerOutParameter(6, java.sql.Types.INTEGER);
+                        cst.execute();
+
+                        nombrePventas = cst.getString(5);
+                        apellidoPventas = cst.getString(6);
+
+                        idempleado.setText(nombrePventas + " " + apellidoPventas);
+
+                    } catch (SQLException ex) {
+                        JOptionPane.showMessageDialog(null,ex);
                     }
                     
-                    try (ResultSet rs4 = st.executeQuery("SELECT * FROM detalle_venta WHERE id_regventas ='"+idventa.getText()+"'")) {
+                    
+                    
+                    //antiguo
+//                    Statement st3 = cn.createStatement();
+//                    try (ResultSet rs3 = st3.executeQuery("SELECT * FROM vendedor WHERE id_empleado ='"+idempleado.getText()+"'")) {
+//                        if(rs3.next()){
+//                            nombrevendedor.setText(rs3.getString("nombre")+" "+rs3.getString("apellido"));
+//                        }
+//                    }
+                    //terminacodigovendedor
+                    
+                    
+                    try (ResultSet rs4 = st.executeQuery("SELECT * FROM detalle_venta WHERE codRegVentas ='"+idventa.getText()+"'")) {
                         DefaultTableModel tabla= (DefaultTableModel) jTable1.getModel();
                         String codProducto,nombreProducto;
                         int cantidad;
@@ -476,13 +557,13 @@ public class registroVenta extends javax.swing.JInternalFrame {
                         
                         
                         while (rs4.next()){
-                            codProducto=rs4.getString("id_producto");
+                            codProducto=rs4.getString("codProducto");
                             cantidad = rs4.getInt("cantidad");
-                            preciou = rs4.getDouble("precio_unitario");
+                            preciou = rs4.getDouble("precioUnitario");
                             subtotal = preciou * cantidad;
                             
                             Statement st4 = cn.createStatement();
-                            ResultSet rs5 = st4.executeQuery("SELECT * from almacen WHERE id_producto ='"+codProducto+"'");
+                            ResultSet rs5 = st4.executeQuery("SELECT * from almacen WHERE codProducto ='"+codProducto+"'");
                             rs5.next();
                             nombreProducto = rs5.getString("nombre");
 
@@ -494,7 +575,7 @@ public class registroVenta extends javax.swing.JInternalFrame {
 //                        ResultSet rs5 = st.executeQuery("\"SELECT * from almacen WHERE id_producto ='\"+codProducto+\"'\"");
                     }
                 } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(null,ex+"fuck, fuck and fuck!");
+                    JOptionPane.showMessageDialog(null,ex+"malo,malo,malo!");
                 }
                 rs.close();
             } else {
