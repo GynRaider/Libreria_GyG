@@ -136,7 +136,6 @@ public class Frmadm extends javax.swing.JFrame {
         menuMantenimiento = new javax.swing.JMenu();
         modificarproducto = new javax.swing.JMenuItem();
         modificarcliente = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         venta = new javax.swing.JMenuItem();
@@ -1019,21 +1018,10 @@ public class Frmadm extends javax.swing.JFrame {
         });
         menuMantenimiento.add(modificarcliente);
 
-        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Bookmark.png"))); // NOI18N
-        jMenuItem6.setText("Modificar Empleado Almacén");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
-            }
-        });
-        menuMantenimiento.add(jMenuItem6);
-
         jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Contacts 2.png"))); // NOI18N
-        jMenuItem5.setText("Modificar Empleado de Ventas");
+        jMenuItem5.setText("Modificar Empleado");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem5ActionPerformed(evt);
@@ -1259,7 +1247,7 @@ public class Frmadm extends javax.swing.JFrame {
 
         nuevoCliente nc = new nuevoCliente();
         ControlaInstanciaC(nc);
-        
+
     }//GEN-LAST:event_operacionesClienteActionPerformed
 
     private void nuevoClienteInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_nuevoClienteInternalFrameOpened
@@ -1367,15 +1355,6 @@ public class Frmadm extends javax.swing.JFrame {
         modificarempleadoventa mode = new modificarempleadoventa();
         ControlaInstanciaMEV(mode);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
-
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-//        modificarempleadoalamacen emp = new modificarempleadoalamacen();
-//        emp.setVisible(true);
-
-        modificarempleadoalamacen me = new modificarempleadoalamacen();
-        this.Contenedor.add(me);
-        me.show();
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         informacion1 inf = new informacion1();
@@ -1498,7 +1477,6 @@ public class Frmadm extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;

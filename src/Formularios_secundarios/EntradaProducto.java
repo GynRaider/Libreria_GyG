@@ -26,6 +26,11 @@ public class EntradaProducto extends javax.swing.JInternalFrame {
      */
     public EntradaProducto() {
         initComponents();
+        jComboBox1.setVisible(false);
+    }
+    
+    public void limpiar(){
+        
     }
 
     /**
@@ -78,6 +83,11 @@ public class EntradaProducto extends javax.swing.JInternalFrame {
         });
 
         jButton3.setText("Limpiar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -122,10 +132,45 @@ public class EntradaProducto extends javax.swing.JInternalFrame {
         jTextField2.setEditable(false);
         jTextField2.setText("Autogenerado");
 
+        numeroFactura.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                numeroFacturaKeyTyped(evt);
+            }
+        });
+
+        precioProducto.setText("0");
+        precioProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                precioProductoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                precioProductoKeyTyped(evt);
+            }
+        });
+
+        cantidadProducto.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        cantidadProducto.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                cantidadProductoStateChanged(evt);
+            }
+        });
+        cantidadProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cantidadProductoKeyReleased(evt);
+            }
+        });
+
         estadoEntrada.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Aceptado", "Rechazado", "En espera" }));
         estadoEntrada.setSelectedIndex(-1);
+        estadoEntrada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                estadoEntradaActionPerformed(evt);
+            }
+        });
 
         jLabel9.setText("Precio total a pagar");
+
+        precioTotal.setEditable(false);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Por devolver", "Devuelto" }));
         jComboBox1.setSelectedIndex(-1);
@@ -225,7 +270,6 @@ public class EntradaProducto extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -335,6 +379,91 @@ public class EntradaProducto extends javax.swing.JInternalFrame {
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void estadoEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estadoEntradaActionPerformed
+        if (estadoEntrada.getSelectedIndex() == 1) {
+            jComboBox1.setVisible(true);
+        } else {
+            jComboBox1.setVisible(false);
+        }
+    }//GEN-LAST:event_estadoEntradaActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void numeroFacturaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numeroFacturaKeyTyped
+        if(!Character.isDigit(evt.getKeyChar())){
+            evt.consume();
+        }
+    }//GEN-LAST:event_numeroFacturaKeyTyped
+
+    private void precioProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precioProductoKeyTyped
+
+        if(!Character.isDigit(evt.getKeyChar()) && evt.getKeyChar() != ','){
+            evt.consume();
+        }
+        
+        if (evt.getKeyChar() == ',' && precioProducto.getText().contains(",")) {
+            evt.consume();
+        }
+
+    }//GEN-LAST:event_precioProductoKeyTyped
+
+    private void precioProductoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precioProductoKeyReleased
+        Double prec,tot;
+        int    cant;
+        
+        try {
+            if (!precioProducto.getText().equals("")) {
+                prec = Double.parseDouble(precioProducto.getText());
+                cant = (Integer)cantidadProducto.getValue();
+
+                tot = prec * cant;
+
+                precioTotal.setText(Double.toString(tot));
+            }
+        } catch ( NumberFormatException ex ) {
+            JOptionPane.showMessageDialog(null,"Imposible calcular datos de más de 10 dígitos");
+        }
+        
+    }//GEN-LAST:event_precioProductoKeyReleased
+
+    private void cantidadProductoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cantidadProductoKeyReleased
+        Double prec,tot;
+        int cant;
+        
+        try {
+                    if (!precioProducto.getText().equals("")) {
+            prec = Double.parseDouble(precioProducto.getText());
+            cant = (Integer)cantidadProducto.getValue();
+        
+            tot = prec * cant;
+        
+            precioTotal.setText(Double.toString(tot));
+        }
+        } catch ( NumberFormatException ex ) {
+            JOptionPane.showMessageDialog(null,"Imposible calcular datos de más de 10 dígitos");
+        }
+    }//GEN-LAST:event_cantidadProductoKeyReleased
+
+    private void cantidadProductoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_cantidadProductoStateChanged
+                Double prec,tot;
+                int cant;
+        
+        try {
+                    if (!precioProducto.getText().equals("")) {
+            prec = Double.parseDouble(precioProducto.getText());
+            cant = (Integer)cantidadProducto.getValue();
+        
+            tot = prec * cant;
+        
+            precioTotal.setText(Double.toString(tot));
+        }
+        } catch ( NumberFormatException ex ) {
+            JOptionPane.showMessageDialog(null,"Imposible calcular datos de más de 10 dígitos");
+        }
+    }//GEN-LAST:event_cantidadProductoStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
