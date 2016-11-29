@@ -434,26 +434,27 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
                                     cliente.setString(2,"Sin ruc");
                                 }
                                 cliente.execute();
+                                st.close();
+                                rs.close();
+                                rs2.close();
+                                st2.close();
                             } catch (SQLException e) {
-                                JOptionPane.showMessageDialog(null,e);
+                                JOptionPane.showMessageDialog(null,"Hubo un problema al registrar en la tabla cliente" +e);
                             }
 
                         } else {
                             JOptionPane.showMessageDialog(null,"No se encontró el dni en la tabla personas");
                         }
 
-                        rs2.close();
-                        st2.close();
-                        cnn.close();
+
                     } catch (SQLException e) {
                         JOptionPane.showMessageDialog(null,e);
                     }
                     
                 }
-                st.close();
-                rs.close();
+
             } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, e);
+                JOptionPane.showMessageDialog(null,"Hubo un problema al registrar en la tabla personas" + e);
             }
         }
         
