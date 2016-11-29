@@ -1379,7 +1379,8 @@ public class Frmadm extends javax.swing.JFrame {
     }//GEN-LAST:event_ContenedorMouseDragged
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-
+        miPerfil2 miPer = new miPerfil2();
+        ControlInstanciamiPer(miPer);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
@@ -1891,6 +1892,37 @@ public class Frmadm extends javax.swing.JFrame {
     }
 
     public void ControlInstanciaIN(informacion1 inter) {
+
+        boolean mostrar = true;
+
+        for (int a = 0; a < Contenedor.getComponentCount(); a++) {
+            if (inter.getClass().isInstance(Contenedor.getComponent(a))) {
+                JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
+                inter.toFront();
+                Contenedor.moveToFront(inter);
+                mostrar = false;
+
+            } else {
+                System.out.println("no se puede mostrarse");
+            }
+        }
+        if (mostrar) {
+
+            nuevoCliente m = new nuevoCliente();
+            Contenedor.add(inter);
+
+            Dimension desktopSize = Contenedor.getSize();
+            Dimension FrameSize = inter.getSize();
+            inter.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+            inter.show();
+
+//  Contenedor.add(inter); 
+        }
+        inter.show();
+
+    }
+    
+    public void ControlInstanciamiPer(miPerfil2 inter) {
 
         boolean mostrar = true;
 
