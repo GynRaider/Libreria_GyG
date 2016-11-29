@@ -1259,9 +1259,9 @@ public class Frmadm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuardadActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        setVisible(false);
         login in1 = new login();
         in1.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -1352,7 +1352,7 @@ public class Frmadm extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        modificarempleadoventa mode = new modificarempleadoventa();
+        modificarEmpleado mode = new modificarEmpleado();
         ControlaInstanciaMEV(mode);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
@@ -1814,7 +1814,7 @@ public class Frmadm extends javax.swing.JFrame {
 
     }
 
-    public void ControlaInstanciaMEV(modificarempleadoventa inter) {
+    public void ControlaInstanciaMEV(modificarEmpleado inter) {
 
         boolean mostrar = true;
 

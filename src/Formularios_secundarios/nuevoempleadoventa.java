@@ -37,6 +37,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         String cadenaAleatoria = "";
         long milis = new java.util.GregorianCalendar().getTimeInMillis();
         Random r = new Random(milis);
+        
         int i = 0;
         while (i < longitud) {
             char c = (char) r.nextInt(255);
@@ -624,7 +625,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                                 try {
                                     //Insertar en la tabla empleado
                                     if (jCheckBox2.isSelected()) {
-                                        fechaInicio = "0000-00-00";
+                                        fechaInicio = null;
                                     } else {
                                         dia = inicioLaboral.getCalendar().get(Calendar.DAY_OF_MONTH);
                                         mes = inicioLaboral.getCalendar().get(Calendar.MONTH);

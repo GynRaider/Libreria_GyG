@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DecimalFormat;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 
@@ -317,7 +318,6 @@ public class EntradaProducto extends javax.swing.JInternalFrame {
                 cst.execute();
                 
                 cst.close();
-                con.close();
                 JOptionPane.showMessageDialog(null,"Entrada añadido correctamente");
                                 
                 if (estadoEntrada.getSelectedIndex()==0) {
@@ -400,11 +400,11 @@ public class EntradaProducto extends javax.swing.JInternalFrame {
 
     private void precioProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precioProductoKeyTyped
 
-        if(!Character.isDigit(evt.getKeyChar()) && evt.getKeyChar() != ','){
+        if(!Character.isDigit(evt.getKeyChar()) && evt.getKeyChar() != '.'){
             evt.consume();
         }
         
-        if (evt.getKeyChar() == ',' && precioProducto.getText().contains(",")) {
+        if (evt.getKeyChar() == '.' && precioProducto.getText().contains(".")) {
             evt.consume();
         }
 
@@ -420,7 +420,7 @@ public class EntradaProducto extends javax.swing.JInternalFrame {
                 cant = (Integer)cantidadProducto.getValue();
 
                 tot = prec * cant;
-
+                
                 precioTotal.setText(Double.toString(tot));
             }
         } catch ( NumberFormatException ex ) {
@@ -432,34 +432,34 @@ public class EntradaProducto extends javax.swing.JInternalFrame {
     private void cantidadProductoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cantidadProductoKeyReleased
         Double prec,tot;
         int cant;
-        
+
         try {
-                    if (!precioProducto.getText().equals("")) {
-            prec = Double.parseDouble(precioProducto.getText());
-            cant = (Integer)cantidadProducto.getValue();
-        
-            tot = prec * cant;
-        
-            precioTotal.setText(Double.toString(tot));
-        }
+            if (!precioProducto.getText().equals("")) {
+                prec = Double.parseDouble(precioProducto.getText());
+                cant = (Integer)cantidadProducto.getValue();
+
+                tot = prec * cant;
+
+                precioTotal.setText(Double.toString(tot));
+            }
         } catch ( NumberFormatException ex ) {
             JOptionPane.showMessageDialog(null,"Imposible calcular datos de más de 10 dígitos");
         }
     }//GEN-LAST:event_cantidadProductoKeyReleased
 
     private void cantidadProductoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_cantidadProductoStateChanged
-                Double prec,tot;
-                int cant;
+        Double prec,tot;
+        int cant;
         
         try {
-                    if (!precioProducto.getText().equals("")) {
-            prec = Double.parseDouble(precioProducto.getText());
-            cant = (Integer)cantidadProducto.getValue();
-        
-            tot = prec * cant;
-        
-            precioTotal.setText(Double.toString(tot));
-        }
+            if (!precioProducto.getText().equals("")) {
+                prec = Double.parseDouble(precioProducto.getText());
+                cant = (Integer)cantidadProducto.getValue();
+
+                tot = prec * cant;
+
+                precioTotal.setText(Double.toString(tot));
+            }
         } catch ( NumberFormatException ex ) {
             JOptionPane.showMessageDialog(null,"Imposible calcular datos de más de 10 dígitos");
         }
