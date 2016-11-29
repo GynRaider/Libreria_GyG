@@ -36,6 +36,7 @@ public class login extends javax.swing.JFrame {
 
         this.setUndecorated(true);
         initComponents();
+        
         fondoa a = new fondoa();
         this.add(a);
         this.pack();
