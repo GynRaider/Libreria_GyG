@@ -920,7 +920,7 @@ public class Frmadm extends javax.swing.JFrame {
         jLabel5.setText("BRINDAR UN BUEN SERVICIO AL CLIENTE ES LO PRIMORDIAL ");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("SISTEMA DE GESTIÓN DE VENTA - FERRETERÍA PEPITO");
+        setTitle("LIBRERIA G&G");
         setIconImage(getIconImage());
 
         Contenedor.setBackground(new java.awt.Color(255, 255, 255));

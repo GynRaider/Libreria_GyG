@@ -165,7 +165,7 @@ public class login extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
         jLabel2.setText("Usuario :");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo/youcam webcam_128.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mchael\\Documents\\NetBeansProjects\\Libreria_GyG\\src\\fondo\\asde.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -188,29 +188,29 @@ public class login extends javax.swing.JFrame {
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(36, 36, 36)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addGap(17, 17, 17))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(37, 37, 37)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(31, 31, 31))
-            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -244,8 +244,8 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel1MouseClicked
 
     private void jPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseDragged
-        Point p = MouseInfo.getPointerInfo().getLocation();
-        this.setLocation(p.x - x, p.y - y);
+//        Point p = MouseInfo.getPointerInfo().getLocation();
+//        this.setLocation(p.x - x, p.y - y);
     }//GEN-LAST:event_jPanel1MouseDragged
 
     private void jButton2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton2KeyPressed
@@ -272,40 +272,41 @@ public class login extends javax.swing.JFrame {
                 cnn = conexion.conectar();
                 Statement st = cnn.createStatement();
                 //realizamos la consulta
-                ResultSet rs=st.executeQuery("SELECT * FROM usuarios WHERE usuario='"+usuario+"' AND contrasena ='"+contrasena+"'");
-                
+                ResultSet rs = st.executeQuery("SELECT * FROM usuarios WHERE usuario='" + usuario + "' AND contrasena ='" + contrasena + "'");
+
                 //nos posicionamos en el último registro
                 rs.last();
-                
+
                 //recuperamos el número de registros del ResultSet
                 int encontrado = rs.getRow();
-                
-                if(encontrado==1){ //si nos devuelve un registro, significa que la autenticación es correcta y mostramos el formulario
+
+                if (encontrado == 1) { //si nos devuelve un registro, significa que la autenticación es correcta y mostramos el formulario
                     tipoAcceso = rs.getString("tipoAcceso");
-                
-                    if(tipoAcceso.equals("Administrador")){
+
+                    if (tipoAcceso.equals("Administrador")) {
                         Frmadm adm = new Frmadm();
                         this.setVisible(false);
                         adm.setVisible(true);
-                        JOptionPane.showMessageDialog(null,"Bienvenido "+usuario);
-                    }else{
-                        if(tipoAcceso.equals("Personal de ventas")){
+
+                        JOptionPane.showMessageDialog(null, "Bienvenido " + usuario);
+                    } else {
+                        if (tipoAcceso.equals("Personal de ventas")) {
                             Frmvendedor vend = new Frmvendedor();
                             this.setVisible(false);
                             vend.setVisible(true);
-                            JOptionPane.showMessageDialog(null,"Bienvenido "+usuario);
-                        }else{
-                            if(tipoAcceso.equals("Personal de almacén")){
+
+                            JOptionPane.showMessageDialog(null, "Bienvenido " + usuario);
+                        } else {
+                            if (tipoAcceso.equals("Personal de almacén")) {
                                 Frmalmacen alm = new Frmalmacen();
                                 this.setVisible(false);
                                 alm.setVisible(true);
-                                JOptionPane.showMessageDialog(null,"Bienvenido "+usuario);
+                                JOptionPane.showMessageDialog(null, "Bienvenido " + usuario);
                             }
                         }
                     }
-                }else{
-                    
-                    JOptionPane.showMessageDialog(null,"Datos incorrectos");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Datos incorrectos");
                 }
                 //cerramos la conexión
                 rs.close();
