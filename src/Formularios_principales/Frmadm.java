@@ -131,6 +131,7 @@ public class Frmadm extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         Menu = new javax.swing.JMenuBar();
         menuArchivo = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         menuMantenimiento = new javax.swing.JMenu();
@@ -967,6 +968,14 @@ public class Frmadm extends javax.swing.JFrame {
         menuArchivo.setText("Inicio");
         menuArchivo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
+        jMenuItem3.setText("Mi perfil");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        menuArchivo.add(jMenuItem3);
+
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0));
         jMenuItem1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Player back.png"))); // NOI18N
@@ -1369,6 +1378,10 @@ public class Frmadm extends javax.swing.JFrame {
 
     }//GEN-LAST:event_ContenedorMouseDragged
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1475,6 +1488,7 @@ public class Frmadm extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem7;
@@ -1906,5 +1920,4 @@ public class Frmadm extends javax.swing.JFrame {
         inter.show();
 
     }
-
 }

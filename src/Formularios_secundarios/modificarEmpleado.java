@@ -687,7 +687,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             fechaIn = cst.getDate(13);
 
             if (codEmpleado == null) {
-                JOptionPane.showMessageDialog(null,"El código es incorrecto o no se encuentra en la base de datos");
+                JOptionPane.showMessageDialog(null,"El código ingresado no existe");
             } else {
                 nombreEmpleado.setText(nomEmpleado);
                 apellidoEmpleado.setText(apeEmpleado);
