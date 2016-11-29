@@ -1379,7 +1379,7 @@ public class Frmadm extends javax.swing.JFrame {
     }//GEN-LAST:event_ContenedorMouseDragged
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        miPerfil2 miPer = new miPerfil2();
+        miPerfil miPer = new miPerfil();
         ControlInstanciamiPer(miPer);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
@@ -1922,7 +1922,7 @@ public class Frmadm extends javax.swing.JFrame {
 
     }
     
-    public void ControlInstanciamiPer(miPerfil2 inter) {
+    public void ControlInstanciamiPer(miPerfil inter) {
 
         boolean mostrar = true;
 

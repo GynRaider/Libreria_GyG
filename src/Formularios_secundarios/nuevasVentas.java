@@ -153,7 +153,6 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
         });
         jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(177, 87, -1, 25));
 
-        jLabel19.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mchael\\Downloads\\VL.jpg")); // NOI18N
         jLabel19.setText("jLabel13");
         jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(-8, -2, 480, 130));
 
@@ -207,7 +206,6 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
         });
         jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(455, 14, -1, -1));
 
-        jLabel14.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mchael\\Downloads\\VL.jpg")); // NOI18N
         jLabel14.setText("jLabel13");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(-8, -2, 550, 110));
 
@@ -226,8 +224,7 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
         numeroventa.setText("Autogenerado");
         PanelNota.add(numeroventa, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 13, 206, 29));
 
-        jLabel13.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mchael\\Downloads\\VL.jpg")); // NOI18N
-        jLabel13.setText("jLabel13");
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo/VL.jpg"))); // NOI18N
         PanelNota.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(-8, -2, 430, 70));
 
         jPanel1.add(PanelNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 410, 60));
@@ -321,11 +318,7 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
         jCheckBox1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBox1.setText("Cancelado");
         jPanel5.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(886, 46, -1, -1));
-
-        jLabel22.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mchael\\Downloads\\VL.jpg")); // NOI18N
         jPanel5.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 540, 80));
-
-        jLabel23.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mchael\\Downloads\\VL.jpg")); // NOI18N
         jPanel5.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(-8, -2, 540, 80));
 
         jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 307, 996, -1));
@@ -401,11 +394,8 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
 
         jLabel2.setText("S/.");
         jPanel12.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(713, 18, -1, -1));
-
-        jLabel20.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mchael\\Downloads\\VL.jpg")); // NOI18N
         jPanel12.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(422, -2, 580, 70));
 
-        jLabel21.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mchael\\Downloads\\VL.jpg")); // NOI18N
         jLabel21.setText("jLabel13");
         jPanel12.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(-8, -2, 430, 70));
 
@@ -421,7 +411,6 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 207, 1010, -1));
 
-        jLabel12.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mchael\\Documents\\NetBeansProjects\\Libreria_GyG\\src\\fondo\\Captura.PNG")); // NOI18N
         jLabel12.setAutoscrolls(true);
         jLabel12.setFocusCycleRoot(true);
         jLabel12.setFocusTraversalPolicyProvider(true);
