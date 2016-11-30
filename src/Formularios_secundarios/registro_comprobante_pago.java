@@ -7,6 +7,8 @@ package Formularios_secundarios;
 
 import conexion.conexion;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -21,12 +23,25 @@ import javax.swing.table.DefaultTableModel;
  */
 public class registro_comprobante_pago extends javax.swing.JInternalFrame {
     Connection con;
-    
+    String codRegistro;
     /**
      * Creates new form reporte_comprobante_pago
      */
+ 
+    
     public registro_comprobante_pago() {
         initComponents();
+        jTable1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int fila = jTable1.rowAtPoint(e.getPoint());
+                int columna = jTable1.columnAtPoint(e.getPoint());
+                if ((fila > -1) && (columna > -1)) {
+//                    System.out.println(jTable1.getValueAt(fila, columna));
+                    codRegistro = jTable1.getValueAt(fila, columna).toString();
+                }
+            }
+        });
     }
 
     /**
@@ -111,7 +126,7 @@ public class registro_comprobante_pago extends javax.swing.JInternalFrame {
         registroVenta2 rv = new registroVenta2();
         rv.show();
         
-        rv.idventa.setText("codigo");
+        rv.idventa.setText(codRegistro);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

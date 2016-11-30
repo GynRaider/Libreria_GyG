@@ -24,7 +24,9 @@ public class registroVenta2 extends javax.swing.JFrame {
      * Creates new form registroVenta2
      */
     public registroVenta2() {
+        this.setUndecorated(true);
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

@@ -164,8 +164,6 @@ public class modificarCliente extends javax.swing.JInternalFrame {
 
         jLabel2.setText("(opcional)");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(417, 83, -1, -1));
-
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mchael\\Documents\\NetBeansProjects\\Libreria_GyG\\src\\fondo\\VL.jpg")); // NOI18N
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 130));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 508, 120));
@@ -241,7 +239,7 @@ public class modificarCliente extends javax.swing.JInternalFrame {
         jPanel10.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, -1));
         jPanel10.add(nacimientoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 150, 30));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mchael\\Documents\\NetBeansProjects\\Libreria_GyG\\src\\fondo\\VL.jpg")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon("D:\\Proyectos informaticos\\Libreria_GyG\\src\\fondo\\VL.jpg")); // NOI18N
         jPanel10.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, 510, 250));
 
         getContentPane().add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 510, 240));
@@ -306,8 +304,6 @@ public class modificarCliente extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 80, -1));
-
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mchael\\Documents\\NetBeansProjects\\Libreria_GyG\\src\\fondo\\VL.jpg")); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, 0, 130, 380));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, 120, 380));
