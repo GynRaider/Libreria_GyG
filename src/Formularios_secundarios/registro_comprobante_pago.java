@@ -5,6 +5,7 @@
  */
 package Formularios_secundarios;
 
+import Formularios_principales.Frmadm;
 import conexion.conexion;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
@@ -123,10 +124,17 @@ public class registro_comprobante_pago extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        registroVenta2 rv = new registroVenta2();
-        rv.show();
+//        registroVenta2 rv = new registroVenta2();
+//        rv.show();
+//        rv.idventa.setText(codRegistro);
+//        rv.jButton1.doClick();
+
+        registroVenta rv = new registroVenta();
+        Frmadm.Contenedor.add(rv);
+        rv.toFront();
+        rv.setVisible(true);
         
-        rv.idventa.setText(codRegistro);
+        registroVenta.recibirCod(codRegistro);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

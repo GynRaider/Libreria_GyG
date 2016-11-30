@@ -577,7 +577,7 @@ public class registroVenta2 extends javax.swing.JFrame {
     private javax.swing.JTextField idempleado;
     public javax.swing.JTextField idventa;
     private javax.swing.JTextField igv;
-    private javax.swing.JButton jButton1;
+    public javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;

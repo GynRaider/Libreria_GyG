@@ -6,6 +6,7 @@
 package Formularios_secundarios;
 
 import Atxy2k.CustomTextField.RestrictedTextField;
+import Formularios_principales.Frmadm;
 import Formularios_principales.login;
 import conexion.conexion;
 import java.awt.Dimension;
@@ -32,7 +33,7 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
     /**
      * Creates new form nuevasVentas
      */
-     private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane();
+    private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane();
     private Dimension dimBarra = null; 
     public nuevasVentas() {
         initComponents();
@@ -40,6 +41,13 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
         Calendar c2 = new GregorianCalendar();
         jDateChooser2.setCalendar(c2);
 
+    }
+    
+    public static void updateTextField(String t, int c){
+        idProducto.setText(t);
+        jButton8.doClick();
+        jSpinner2.setValue(c);
+        btnNuevo.doClick();
     }
 
     /**
@@ -903,7 +911,7 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
     private javax.swing.JPanel PanelNota;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnNuevo;
+    private static javax.swing.JButton btnNuevo;
     private javax.swing.JTextField celularCliente;
     private javax.swing.JTextField codCliente;
     private javax.swing.JTextField dirCliente;
@@ -914,7 +922,7 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton8;
+    public static javax.swing.JButton jButton8;
     private javax.swing.JCheckBox jCheckBox1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
@@ -951,7 +959,7 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSpinner jSpinner2;
+    private static javax.swing.JSpinner jSpinner2;
     public static javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField12;
@@ -965,12 +973,11 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txt_codVendedor;
     private javax.swing.JTextField txt_nombreVendedor;
     // End of variables declaration//GEN-END:variables
-public void ocultarBarraTitulo()
-{ 
-Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane(); 
-dimBarra = Barra.getPreferredSize(); 
-Barra.setSize(0,0); 
-Barra.setPreferredSize(new Dimension(0,0)); 
-repaint(); 
-}
+public void ocultarBarraTitulo() {
+        Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane();
+        dimBarra = Barra.getPreferredSize();
+        Barra.setSize(0, 0);
+        Barra.setPreferredSize(new Dimension(0, 0));
+        repaint();
+    }
 }

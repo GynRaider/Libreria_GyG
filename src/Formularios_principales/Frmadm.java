@@ -1435,7 +1435,7 @@ public class Frmadm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane Contenedor;
+    public static javax.swing.JDesktopPane Contenedor;
     private javax.swing.ButtonGroup GrupoImpuestos;
     private javax.swing.JMenuBar Menu;
     private javax.swing.JTextField NumeroVenta;
