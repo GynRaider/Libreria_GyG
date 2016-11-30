@@ -12,6 +12,7 @@ import java.awt.Point;
 import java.awt.Shape;
 import java.awt.Toolkit;
 import java.awt.geom.RoundRectangle2D;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class Frmadm extends javax.swing.JFrame {
@@ -1556,7 +1557,8 @@ public class Frmadm extends javax.swing.JFrame {
 
         for (int a = 0; a < Contenedor.getComponentCount(); a++) {
             if (inter.getClass().isInstance(Contenedor.getComponent(a))) {
-                JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
+                JOptionPane.showMessageDialog(this, "La ventana ya está abierta", "Libreria G&G", 
+                            JOptionPane.QUESTION_MESSAGE, new ImageIcon("src/Recursos/Shield.png"));
                 inter.toFront();
                 Contenedor.moveToFront(inter);
                 mostrar = false;
@@ -1587,7 +1589,8 @@ public class Frmadm extends javax.swing.JFrame {
 
         for (int a = 0; a < Contenedor.getComponentCount(); a++) {
             if (inter.getClass().isInstance(Contenedor.getComponent(a))) {
-                JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
+                JOptionPane.showMessageDialog(this, "La ventana ya está abierta", "Libreria G&G", 
+                            JOptionPane.QUESTION_MESSAGE, new ImageIcon("src/Recursos/Shield.png"));
                 inter.toFront();
                 Contenedor.moveToFront(inter);
                 mostrar = false;
@@ -1618,7 +1621,8 @@ public class Frmadm extends javax.swing.JFrame {
 
         for (int a = 0; a < Contenedor.getComponentCount(); a++) {
             if (inter.getClass().isInstance(Contenedor.getComponent(a))) {
-                JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
+                JOptionPane.showMessageDialog(this, "La ventana ya está abierta", "Libreria G&G", 
+                            JOptionPane.QUESTION_MESSAGE, new ImageIcon("src/Recursos/Shield.png"));
                 inter.toFront();
                 Contenedor.moveToFront(inter);
                 mostrar = false;
@@ -1649,7 +1653,8 @@ public class Frmadm extends javax.swing.JFrame {
 
         for (int a = 0; a < Contenedor.getComponentCount(); a++) {
             if (inter.getClass().isInstance(Contenedor.getComponent(a))) {
-                JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
+                JOptionPane.showMessageDialog(this, "La ventana ya está abierta", "Libreria G&G", 
+                            JOptionPane.QUESTION_MESSAGE, new ImageIcon("src/Recursos/Shield.png"));
                 inter.toFront();
                 Contenedor.moveToFront(inter);
                 mostrar = false;
@@ -1680,7 +1685,8 @@ public class Frmadm extends javax.swing.JFrame {
 
         for (int a = 0; a < Contenedor.getComponentCount(); a++) {
             if (inter.getClass().isInstance(Contenedor.getComponent(a))) {
-                JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
+                JOptionPane.showMessageDialog(this, "La ventana ya está abierta", "Libreria G&G", 
+                            JOptionPane.QUESTION_MESSAGE, new ImageIcon("src/Recursos/Shield.png"));
                 inter.toFront();
                 Contenedor.moveToFront(inter);
                 mostrar = false;
@@ -1711,7 +1717,8 @@ public class Frmadm extends javax.swing.JFrame {
 
         for (int a = 0; a < Contenedor.getComponentCount(); a++) {
             if (inter.getClass().isInstance(Contenedor.getComponent(a))) {
-                JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
+                JOptionPane.showMessageDialog(this, "La ventana ya está abierta", "Libreria G&G", 
+                            JOptionPane.QUESTION_MESSAGE, new ImageIcon("src/Recursos/Shield.png"));
                 inter.toFront();
                 Contenedor.moveToFront(inter);
                 mostrar = false;
@@ -1742,7 +1749,8 @@ public class Frmadm extends javax.swing.JFrame {
 
         for (int a = 0; a < Contenedor.getComponentCount(); a++) {
             if (inter.getClass().isInstance(Contenedor.getComponent(a))) {
-                JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
+                JOptionPane.showMessageDialog(this, "La ventana ya está abierta", "Libreria G&G", 
+                            JOptionPane.QUESTION_MESSAGE, new ImageIcon("src/Recursos/Shield.png"));
                 inter.toFront();
                 Contenedor.moveToFront(inter);
                 mostrar = false;
@@ -1773,7 +1781,8 @@ public class Frmadm extends javax.swing.JFrame {
 
         for (int a = 0; a < Contenedor.getComponentCount(); a++) {
             if (inter.getClass().isInstance(Contenedor.getComponent(a))) {
-                JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
+                JOptionPane.showMessageDialog(this, "La ventana ya está abierta", "Libreria G&G", 
+                            JOptionPane.QUESTION_MESSAGE, new ImageIcon("src/Recursos/Shield.png"));
                 inter.toFront();
                 Contenedor.moveToFront(inter);
                 mostrar = false;
@@ -1804,7 +1813,8 @@ public class Frmadm extends javax.swing.JFrame {
 
         for (int a = 0; a < Contenedor.getComponentCount(); a++) {
             if (inter.getClass().isInstance(Contenedor.getComponent(a))) {
-                JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
+                JOptionPane.showMessageDialog(this, "La ventana ya está abierta", "Libreria G&G", 
+                            JOptionPane.QUESTION_MESSAGE, new ImageIcon("src/Recursos/Shield.png"));
                 inter.toFront();
                 Contenedor.moveToFront(inter);
                 mostrar = false;
@@ -1835,7 +1845,8 @@ public class Frmadm extends javax.swing.JFrame {
 
         for (int a = 0; a < Contenedor.getComponentCount(); a++) {
             if (inter.getClass().isInstance(Contenedor.getComponent(a))) {
-                JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
+                JOptionPane.showMessageDialog(this, "La ventana ya está abierta", "Libreria G&G", 
+                            JOptionPane.QUESTION_MESSAGE, new ImageIcon("src/Recursos/Shield.png"));
                 inter.toFront();
                 Contenedor.moveToFront(inter);
                 mostrar = false;
@@ -1866,7 +1877,8 @@ public class Frmadm extends javax.swing.JFrame {
 
         for (int a = 0; a < Contenedor.getComponentCount(); a++) {
             if (inter.getClass().isInstance(Contenedor.getComponent(a))) {
-                JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
+                JOptionPane.showMessageDialog(this, "La ventana ya está abierta", "Libreria G&G", 
+                            JOptionPane.QUESTION_MESSAGE, new ImageIcon("src/Recursos/Shield.png"));
                 inter.toFront();
                 Contenedor.moveToFront(inter);
                 mostrar = false;
@@ -1897,7 +1909,8 @@ public class Frmadm extends javax.swing.JFrame {
 
         for (int a = 0; a < Contenedor.getComponentCount(); a++) {
             if (inter.getClass().isInstance(Contenedor.getComponent(a))) {
-                JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
+                JOptionPane.showMessageDialog(this, "La ventana ya está abierta", "Libreria G&G", 
+                            JOptionPane.QUESTION_MESSAGE, new ImageIcon("src/Recursos/Shield.png"));
                 inter.toFront();
                 Contenedor.moveToFront(inter);
                 mostrar = false;
@@ -1928,7 +1941,8 @@ public class Frmadm extends javax.swing.JFrame {
 
         for (int a = 0; a < Contenedor.getComponentCount(); a++) {
             if (inter.getClass().isInstance(Contenedor.getComponent(a))) {
-                JOptionPane.showMessageDialog(rootPane, "La ventana ya esta abierta");
+               JOptionPane.showMessageDialog(this, "La ventana ya está abierta", "Libreria G&G", 
+                            JOptionPane.QUESTION_MESSAGE, new ImageIcon("src/Recursos/Shield.png"));
                 inter.toFront();
                 Contenedor.moveToFront(inter);
                 mostrar = false;

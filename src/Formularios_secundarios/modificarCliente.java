@@ -100,6 +100,7 @@ public class modificarCliente extends javax.swing.JInternalFrame {
         jLabel34 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
@@ -118,12 +119,14 @@ public class modificarCliente extends javax.swing.JInternalFrame {
         buscarCliente = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         nacimientoCliente = new com.toedter.calendar.JDateChooser();
+        jLabel4 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         JBT_Limpiar = new javax.swing.JButton();
         btnGuardad = new javax.swing.JButton();
         jCheckBox2 = new javax.swing.JCheckBox();
+        jLabel6 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         jFormattedTextField1.setText("jFormattedTextField1");
@@ -161,6 +164,9 @@ public class modificarCliente extends javax.swing.JInternalFrame {
 
         jLabel2.setText("(opcional)");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(417, 83, -1, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mchael\\Documents\\NetBeansProjects\\Libreria_GyG\\src\\fondo\\VL.jpg")); // NOI18N
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 130));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 508, 120));
 
@@ -235,6 +241,9 @@ public class modificarCliente extends javax.swing.JInternalFrame {
         jPanel10.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, -1));
         jPanel10.add(nacimientoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 150, 30));
 
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mchael\\Documents\\NetBeansProjects\\Libreria_GyG\\src\\fondo\\VL.jpg")); // NOI18N
+        jPanel10.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, 510, 250));
+
         getContentPane().add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 510, 240));
 
         jLabel36.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -297,6 +306,9 @@ public class modificarCliente extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 80, -1));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mchael\\Documents\\NetBeansProjects\\Libreria_GyG\\src\\fondo\\VL.jpg")); // NOI18N
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, 0, 130, 380));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, 120, 380));
 
@@ -517,6 +529,9 @@ repaint();
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;

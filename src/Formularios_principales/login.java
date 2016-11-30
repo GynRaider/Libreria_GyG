@@ -9,7 +9,9 @@ import java.awt.*;
 import Formularios_secundarios.nuevasVentas;
 import com.sun.awt.AWTUtilities;
 import conexion.conexion;
+import fondo.MyIcon;
 import fondo.fondoa;
+import static java.awt.Color.GREEN;
 import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.Shape;
@@ -18,6 +20,8 @@ import java.awt.geom.RoundRectangle2D;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -36,7 +40,12 @@ public class login extends javax.swing.JFrame {
 
         this.setUndecorated(true);
         initComponents();
-        
+
+        ImageIcon image = new ImageIcon("src/fondo/asde.png");
+        Icon icono = new ImageIcon(image.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_DEFAULT));
+        jLabel1.setIcon(icono);
+        this.repaint();
+
         fondoa a = new fondoa();
         this.add(a);
         this.pack();
@@ -53,8 +62,9 @@ public class login extends javax.swing.JFrame {
 
     @Override
     public Image getIconImage() {
-        Image imagen = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("fondo/logoa.png"));
+        Image imagen = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("fondo/GyG.png"));
         return imagen;
+
     }
 
     /**
@@ -88,6 +98,8 @@ public class login extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("LIBRERIA G&G");
+        setIconImage(getIconImage());
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 formMouseDragged(evt);
@@ -269,7 +281,8 @@ public class login extends javax.swing.JFrame {
         contrasena = jPasswordField1.getText();
 
         if (usuario.equals("") && contrasena.equals("")) {
-            JOptionPane.showMessageDialog(null, "Ingrese los datos");
+            JOptionPane.showMessageDialog(this, "Ingrese los Datos", "Libreria G&G",
+                    JOptionPane.QUESTION_MESSAGE, new ImageIcon("src/Recursos/Signal attention.png"));
         } else {
             try {
                 cnn = conexion.conectar();
@@ -291,31 +304,37 @@ public class login extends javax.swing.JFrame {
                         this.setVisible(false);
                         adm.setVisible(true);
 
-                        JOptionPane.showMessageDialog(null, "Bienvenido " + usuario);
+                        JOptionPane.showMessageDialog(this, "Bienvenido Administrador", "Libreria G&G",
+                                JOptionPane.QUESTION_MESSAGE, new ImageIcon("src/Recursos/Identification card.png"));
                     } else {
                         if (tipoAcceso.equals("Personal de ventas")) {
                             Frmvendedor vend = new Frmvendedor();
                             this.setVisible(false);
                             vend.setVisible(true);
 
-                            JOptionPane.showMessageDialog(null, "Bienvenido " + usuario);
+                            JOptionPane.showMessageDialog(this, "Bienvenido Personal de Ventas", "Libreria G&G",
+                                    JOptionPane.QUESTION_MESSAGE, new ImageIcon("src/Recursos/User.png"));
+
                         } else {
                             if (tipoAcceso.equals("Personal de almacén")) {
                                 Frmalmacen alm = new Frmalmacen();
                                 this.setVisible(false);
                                 alm.setVisible(true);
-                                JOptionPane.showMessageDialog(null, "Bienvenido " + usuario);
+                                JOptionPane.showMessageDialog(this, "Bienvenido Personal de Almacen", "Libreria G&G",
+                                        JOptionPane.QUESTION_MESSAGE, new ImageIcon("src/Recursos/User.png"));
                             }
                         }
                     }
                 } else {
-                    JOptionPane.showMessageDialog(null, "Datos incorrectos");
+                    JOptionPane.showMessageDialog(this, "Datos incorrectos", "Libreria G&G",
+                            JOptionPane.QUESTION_MESSAGE, new ImageIcon("src/Recursos/Badge cancel.png"));
                 }
                 //cerramos la conexión
                 rs.close();
                 st.close();
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Conexion con la base de datos fallida" + e);
+
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
