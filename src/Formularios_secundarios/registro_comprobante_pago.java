@@ -6,13 +6,12 @@
 package Formularios_secundarios;
 
 import conexion.conexion;
+import java.awt.event.KeyEvent;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -22,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class registro_comprobante_pago extends javax.swing.JInternalFrame {
     Connection con;
-
+    
     /**
      * Creates new form reporte_comprobante_pago
      */
