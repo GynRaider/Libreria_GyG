@@ -38,7 +38,7 @@ public class registro_comprobante_pago extends javax.swing.JInternalFrame {
                 int columna = jTable1.columnAtPoint(e.getPoint());
                 if ((fila > -1) && (columna > -1)) {
 //                    System.out.println(jTable1.getValueAt(fila, columna));
-                    codRegistro = jTable1.getValueAt(fila, columna).toString();
+                    codRegistro = jTable1.getValueAt(fila, 1).toString();
                 }
             }
         });
