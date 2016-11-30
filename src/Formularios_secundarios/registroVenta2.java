@@ -11,8 +11,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,12 +18,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author GynRaider
  */
-public class registroVenta extends javax.swing.JInternalFrame {
+public class registroVenta2 extends javax.swing.JFrame {
 
     /**
-     * Creates new form RegistroVenta
+     * Creates new form registroVenta2
      */
-    public registroVenta() {
+    public registroVenta2() {
         initComponents();
     }
 
@@ -38,19 +36,27 @@ public class registroVenta extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         idventa = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        nombrecliente = new javax.swing.JTextField();
+        idcliente = new javax.swing.JTextField();
+        doccliente = new javax.swing.JTextField();
+        telefonocliente = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        dircliente = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         fecha = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
         idempleado = new javax.swing.JTextField();
         nombrevendedor = new javax.swing.JTextField();
         jLabel41 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -66,23 +72,8 @@ public class registroVenta extends javax.swing.JInternalFrame {
         jCheckBox1 = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        idcliente = new javax.swing.JTextField();
-        nombrecliente = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        dircliente = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        telefonocliente = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        doccliente = new javax.swing.JTextField();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
 
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("Buscar Cod Venta");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -90,7 +81,6 @@ public class registroVenta extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 13, -1, -1));
 
         jButton2.setText("Atras");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -98,27 +88,42 @@ public class registroVenta extends javax.swing.JInternalFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(722, 13, -1, -1));
-        jPanel1.add(idventa, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 14, 111, -1));
-        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 50));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 11, 810, 50));
+        nombrecliente.setEditable(false);
+        nombrecliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jPanel3.setBackground(new java.awt.Color(153, 204, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        idcliente.setEditable(false);
+        idcliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+
+        doccliente.setEditable(false);
+        doccliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+
+        telefonocliente.setEditable(false);
+        telefonocliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel6.setText("Telefono");
+
+        dircliente.setEditable(false);
+        dircliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setText("Cliente");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setText("Documento");
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel5.setText("Direccion ");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setText("Fecha");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 78, -1, -1));
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel9.setText("Vendedor");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 105, -1, -1));
 
         fecha.setEditable(false);
         fecha.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel3.add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 74, 101, -1));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel9.setText("Vendedor");
 
         idempleado.setEditable(false);
         idempleado.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -127,18 +132,12 @@ public class registroVenta extends javax.swing.JInternalFrame {
                 idempleadoActionPerformed(evt);
             }
         });
-        jPanel3.add(idempleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 101, 66, -1));
 
         nombrevendedor.setEditable(false);
         nombrevendedor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel3.add(nombrevendedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 101, 206, -1));
 
         jLabel41.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel41.setText("LIBRERIA G & G ");
-        jPanel3.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 13, -1, -1));
-        jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 130));
-
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(457, 70, 370, 130));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -215,8 +214,8 @@ public class registroVenta extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE))
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -229,60 +228,146 @@ public class registroVenta extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 211, -1, -1));
-
-        jPanel2.setBackground(new java.awt.Color(153, 204, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel3.setText("Cliente");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 17, -1, -1));
-
-        idcliente.setEditable(false);
-        idcliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel2.add(idcliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 13, 85, -1));
-
-        nombrecliente.setEditable(false);
-        nombrecliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel2.add(nombrecliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 13, 238, -1));
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel4.setText("Documento");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 44, -1, -1));
-
-        dircliente.setEditable(false);
-        dircliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel2.add(dircliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 67, 333, -1));
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel6.setText("Telefono");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 44, -1, -1));
-
-        telefonocliente.setEditable(false);
-        telefonocliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel2.add(telefonocliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 40, 115, -1));
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel5.setText("Direccion ");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 67, -1, -1));
-
-        doccliente.setEditable(false);
-        doccliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel2.add(doccliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 40, 161, -1));
-        jPanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 100));
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 104, 432, 100));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo/Captura.PNG"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 520));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(176, 176, 176)
+                        .addComponent(idventa, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(jButton1))
+                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 810, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(722, 722, 722)
+                        .addComponent(jButton2))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel3)
+                        .addGap(22, 22, 22)
+                        .addComponent(idcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(305, 305, 305)
+                        .addComponent(telefonocliente, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addComponent(doccliente, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(182, 182, 182)
+                        .addComponent(nombrecliente, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addComponent(dircliente, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(252, 252, 252)
+                        .addComponent(jLabel6))
+                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addComponent(jLabel41))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel8)
+                        .addGap(31, 31, 31)
+                        .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel9)
+                        .addGap(10, 10, 10)
+                        .addComponent(idempleado, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(nombrevendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(jButton1))
+                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(jButton2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(idventa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(jLabel3))
+                            .addComponent(idcliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(telefonocliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(doccliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(nombrecliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(dircliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(jLabel5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(jLabel6))
+                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel41)
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(jLabel8))
+                            .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(8, 8, 8)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(jLabel9))
+                            .addComponent(idempleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nombrevendedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-            this.setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Connection cn;
@@ -290,39 +375,39 @@ public class registroVenta extends javax.swing.JInternalFrame {
 
         Statement st;
         DefaultTableModel tabla2 = (DefaultTableModel) jTable1.getModel();
-                
+
         for (int i = 0; i < jTable1.getRowCount(); i++) {
-             tabla2.removeRow(i);
-             i-=1;
-         }
-        
+            tabla2.removeRow(i);
+            i-=1;
+        }
+
         try {
             st = cn.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM registro_ventas WHERE codRegVentas = '"+idventa.getText()+"'");
-            
+
             if (rs.next()) {
                 idcliente.setText(rs.getString("codCliente"));
                 idempleado.setText(rs.getString("idPersonalVentas"));
                 fecha.setText(rs.getString("fecha"));
-                
+
                 if(rs.getString("cancelado").equals("cancelado")){
                     jCheckBox1.setSelected(true);
                 }else{
                     jCheckBox1.setSelected(false);
                 }
-                
+
                 try {
-                    
+
                     //clliente
 
                     String codcliente,
-                            nombreCliente,
-                            apellidocliente,
-                            dirCliente;
+                    nombreCliente,
+                    apellidocliente,
+                    dirCliente;
                     int
-                            docCliente,
-                            celularcliente;
-//        
+                    docCliente,
+                    celularcliente;
+                    //
                     try {
                         CallableStatement cst = cn.prepareCall("Call buscar_cliente(?,?,?,?,?,?,?,?)");
 
@@ -340,7 +425,7 @@ public class registroVenta extends javax.swing.JInternalFrame {
                         apellidocliente = cst.getString(5);
                         docCliente = cst.getInt(6);
                         celularcliente = cst.getInt(7);
-                        dirCliente = cst.getString(8);            
+                        dirCliente = cst.getString(8);
 
                         nombrecliente.setText(nombreCliente+" "+apellidocliente);
                         doccliente.setText(Integer.toString(docCliente));
@@ -354,9 +439,9 @@ public class registroVenta extends javax.swing.JInternalFrame {
                     } catch (SQLException e) {
                         JOptionPane.showMessageDialog(null,e);
                     }
-                    
+
                     //termina codigo cilente
-                    
+
                     //vendedor
                     try {
                         String nombrePventas, apellidoPventas;
@@ -377,21 +462,20 @@ public class registroVenta extends javax.swing.JInternalFrame {
 
                     } catch (SQLException ex) {
                         JOptionPane.showMessageDialog(null,ex);
-                    }                    
-                    
+                    }
+
                     try (ResultSet rs4 = st.executeQuery("SELECT * FROM detalle_venta WHERE codRegVentas ='"+idventa.getText()+"'")) {
                         DefaultTableModel tabla= (DefaultTableModel) jTable1.getModel();
                         String codProducto,nombreProducto;
                         int cantidad;
                         double preciou,subtotal;
-                        
-                        
+
                         while (rs4.next()){
                             codProducto=rs4.getString("codProducto");
                             cantidad = rs4.getInt("cantidad");
                             preciou = rs4.getDouble("precioUnitario");
                             subtotal = preciou * cantidad;
-                            
+
                             Statement st4 = cn.createStatement();
                             ResultSet rs5 = st4.executeQuery("SELECT * from almacen WHERE codProducto ='"+codProducto+"'");
                             rs5.next();
@@ -399,10 +483,10 @@ public class registroVenta extends javax.swing.JInternalFrame {
 
                             tabla.addRow( new Object[] {codProducto, nombreProducto, cantidad, preciou,subtotal} );
                         }
-                        
+
                         rs4.close();
-                        
-//                        ResultSet rs5 = st.executeQuery("\"SELECT * from almacen WHERE id_producto ='\"+codProducto+\"'\"");
+
+                        //                        ResultSet rs5 = st.executeQuery("\"SELECT * from almacen WHERE id_producto ='\"+codProducto+\"'\"");
                     }
                 } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(null,ex+"malo,malo,malo!");
@@ -411,30 +495,34 @@ public class registroVenta extends javax.swing.JInternalFrame {
             } else {
                 JOptionPane.showMessageDialog(null,"Registro inexistente");
             }
-            
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,ex);
         }
-        
+
         double montotal = 0;
 
         for (int i = 0; i < jTable1.getRowCount(); i++) {
             double
-                    nuevovalor = (double) jTable1.getValueAt(i,4);
-            
+            nuevovalor = (double) jTable1.getValueAt(i,4);
+
             montotal +=  nuevovalor;
         }
-        
+
         jTextField11.setText(Double.toString(Math.round(montotal*100)/100));
-        
+
         double totaligv, total,descuento;
         totaligv = montotal * Double.parseDouble(jTextField12.getText())/100;
-//        descuento = montotal * Double.parseDouble(jTextField2.getText())/100;
+        //        descuento = montotal * Double.parseDouble(jTextField2.getText())/100;
         total = montotal + totaligv;
 
         igv.setText(Double.toString(Math.round(totaligv*100)/100));
         totalV.setText(Double.toString(Math.round(total*100)/100));
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void idempleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idempleadoActionPerformed
         // TODO add your handling code here:
@@ -444,6 +532,40 @@ public class registroVenta extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField12ActionPerformed
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(registroVenta2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(registroVenta2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(registroVenta2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(registroVenta2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new registroVenta2().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField dircliente;
@@ -451,7 +573,7 @@ public class registroVenta extends javax.swing.JInternalFrame {
     private javax.swing.JTextField fecha;
     private javax.swing.JTextField idcliente;
     private javax.swing.JTextField idempleado;
-    private javax.swing.JTextField idventa;
+    public javax.swing.JTextField idventa;
     private javax.swing.JTextField igv;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -461,7 +583,6 @@ public class registroVenta extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
@@ -473,9 +594,6 @@ public class registroVenta extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
