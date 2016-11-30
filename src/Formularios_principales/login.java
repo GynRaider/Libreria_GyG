@@ -308,7 +308,7 @@ public class login extends javax.swing.JFrame {
                                 JOptionPane.QUESTION_MESSAGE, new ImageIcon("src/Recursos/Identification card.png"));
                     } else {
                         if (tipoAcceso.equals("Personal de ventas")) {
-                            Frmvendedor vend = new Frmvendedor();
+                            Frmavendedor1 vend = new Frmavendedor1();
                             this.setVisible(false);
                             vend.setVisible(true);
 
@@ -317,7 +317,7 @@ public class login extends javax.swing.JFrame {
 
                         } else {
                             if (tipoAcceso.equals("Personal de almacén")) {
-                                Frmalmacen alm = new Frmalmacen();
+                                Frmalmacen1 alm = new Frmalmacen1();
                                 this.setVisible(false);
                                 alm.setVisible(true);
                                 JOptionPane.showMessageDialog(this, "Bienvenido Personal de Almacen", "Libreria G&G",
