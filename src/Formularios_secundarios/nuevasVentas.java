@@ -908,7 +908,7 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
     private javax.swing.JTextField codCliente;
     private javax.swing.JTextField dirCliente;
     private javax.swing.JTextField docCliente;
-    private javax.swing.JTextField idProducto;
+    public static javax.swing.JTextField idProducto;
     private javax.swing.JTextField igv;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -952,14 +952,14 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner jSpinner2;
-    private javax.swing.JTable jTable1;
+    public static javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField nombreProducto;
+    public javax.swing.JTextField nombreProducto;
     private javax.swing.JTextField npCliente;
     private javax.swing.JTextField numeroventa;
-    private javax.swing.JTextField precioProducto;
+    public javax.swing.JTextField precioProducto;
     private javax.swing.JCheckBox recogeAlmacen;
     private javax.swing.JTextField totalV;
     private javax.swing.JTextField txt_codVendedor;
