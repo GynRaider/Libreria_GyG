@@ -11,8 +11,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,12 +18,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author GynRaider
  */
-public class registroVenta extends javax.swing.JInternalFrame {
+public class registroVenta1 extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form RegistroVenta
      */
-    public registroVenta() {
+    public registroVenta1() {
         initComponents();
     }
 
@@ -206,7 +204,7 @@ public class registroVenta extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("%");
         jPanel5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(291, 14, -1, -1));
-        jPanel5.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 70));
+        jPanel5.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 90));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);

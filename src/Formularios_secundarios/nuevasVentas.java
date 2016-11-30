@@ -95,6 +95,7 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
+        recogeAlmacen = new javax.swing.JCheckBox();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         btnNuevo = new javax.swing.JButton();
@@ -318,6 +319,9 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
         jCheckBox1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBox1.setText("Cancelado");
         jPanel5.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(886, 46, -1, -1));
+
+        recogeAlmacen.setText("Recoge en el almacén");
+        jPanel5.add(recogeAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 43, -1, 30));
         jPanel5.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 540, 80));
         jPanel5.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(-8, -2, 540, 80));
 
@@ -686,10 +690,7 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
                              
                          }
                          
-                         
-                         
                          JOptionPane.showMessageDialog(null,"Registro guardado");
-                         
                          
                          DefaultTableModel tabla = (DefaultTableModel) jTable1.getModel();
                          for (int i = 0; i < jTable1.getRowCount(); i++) {
@@ -705,6 +706,13 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
                          txt_codVendedor.setText("");
                          txt_nombreVendedor.setText("");
                          
+                         //En caso de que se tenga que recoger el producto en el almacén,se guardará un registro en comprobante de pagos
+                         if (recogeAlmacen.isEnabled()) {
+                            CallableStatement rA = con.prepareCall("Call insertar_comprobantepago(?,?)");
+                            rA.setString(1,idregistroventa);
+                            rA.setString(2,"NoRegistro");
+                            rA.execute();
+                        }
                      } catch (SQLException e) {
 //                         JOptionPane.showMessageDialog(null,"Ingrese la fecha correctamente (DD/MM/YYY)");
                          JOptionPane.showMessageDialog(null,e);
@@ -735,8 +743,7 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
                              }catch(SQLException ex){
                                  JOptionPane.showMessageDialog(null,ex);
                              }
-
-
+                             
                              //Actualizar el stock almacen
                              Statement sta = con.createStatement();
                              ResultSet rsa = sta.executeQuery("SELECT * FROM almacen WHERE codProducto = '"+(String) jTable1.getValueAt(i,0)+"'");
@@ -786,6 +793,13 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
                          dirCliente.setText("");
                          txt_codVendedor.setText("");
                          txt_nombreVendedor.setText("");
+                         
+                         if (recogeAlmacen.isEnabled()) {
+                            CallableStatement rA = con.prepareCall("Call insertar_comprobantepago(?,?)");
+                            rA.setString(1,idregistroventa);
+                            rA.setString(2,idcliente);
+                            rA.execute();
+                        }
 
                      } catch (SQLException e) {
 //                         JOptionPane.showMessageDialog(null,"Ingrese la fecha correctamente (DD/MM/YYY)");
@@ -946,6 +960,7 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
     private javax.swing.JTextField npCliente;
     private javax.swing.JTextField numeroventa;
     private javax.swing.JTextField precioProducto;
+    private javax.swing.JCheckBox recogeAlmacen;
     private javax.swing.JTextField totalV;
     private javax.swing.JTextField txt_codVendedor;
     private javax.swing.JTextField txt_nombreVendedor;
