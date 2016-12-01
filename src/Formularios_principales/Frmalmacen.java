@@ -5,6 +5,8 @@ import java.awt.Image;
 import java.awt.Shape;
 import java.awt.Toolkit;
 import java.awt.geom.RoundRectangle2D;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class Frmalmacen extends javax.swing.JFrame {
@@ -16,7 +18,11 @@ public class Frmalmacen extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         Shape forma = new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 27, 27);
         AWTUtilities.setWindowShape(this, forma);
-
+        
+        ImageIcon image = new ImageIcon("src/fondo/Flong.jpg");
+        Icon icono = new ImageIcon(image.getImage().getScaledInstance(Contenedor.getWidth(), Contenedor.getHeight(), Image.SCALE_DEFAULT));
+        Contenedor.setIcon(icono);
+        this.repaint();
 //        Conexion con=new Conexion();
         iniciarConexion();
     }
