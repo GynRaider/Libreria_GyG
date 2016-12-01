@@ -107,6 +107,8 @@ public class registroVenta extends javax.swing.JInternalFrame {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(722, 13, -1, -1));
         jPanel1.add(idventa, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 14, 111, -1));
+
+        jLabel22.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mchael\\Documents\\NetBeansProjects\\Libreria_GyG\\src\\fondo\\VL.jpg")); // NOI18N
         jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 50));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 11, 810, 50));
@@ -143,6 +145,8 @@ public class registroVenta extends javax.swing.JInternalFrame {
         jLabel41.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel41.setText("LIBRERIA G & G ");
         jPanel3.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 13, -1, -1));
+
+        jLabel24.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mchael\\Documents\\NetBeansProjects\\Libreria_GyG\\src\\fondo\\VL.jpg")); // NOI18N
         jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 130));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(457, 70, 370, 130));
@@ -150,6 +154,7 @@ public class registroVenta extends javax.swing.JInternalFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jTable1.setBackground(new java.awt.Color(204, 204, 0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -158,7 +163,7 @@ public class registroVenta extends javax.swing.JInternalFrame {
                 "CODIGO", "PRODUCTO", "CANTIDAD", "PRECIO U", "SUBTOTAL"
             }
         ));
-        jTable1.setGridColor(new java.awt.Color(153, 204, 255));
+        jTable1.setGridColor(new java.awt.Color(204, 204, 0));
         jScrollPane1.setViewportView(jTable1);
 
         jPanel5.setBackground(new java.awt.Color(255, 204, 102));
@@ -213,6 +218,8 @@ public class registroVenta extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("%");
         jPanel5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(291, 14, -1, -1));
+
+        jLabel25.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mchael\\Documents\\NetBeansProjects\\Libreria_GyG\\src\\fondo\\VL.jpg")); // NOI18N
         jPanel5.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 70));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -277,6 +284,8 @@ public class registroVenta extends javax.swing.JInternalFrame {
         doccliente.setEditable(false);
         doccliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel2.add(doccliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 40, 161, -1));
+
+        jLabel23.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mchael\\Documents\\NetBeansProjects\\Libreria_GyG\\src\\fondo\\VL.jpg")); // NOI18N
         jPanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 100));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 104, 432, 100));

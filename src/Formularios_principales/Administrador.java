@@ -6,6 +6,7 @@
 package Formularios_principales;
 
 import com.sun.awt.AWTUtilities;
+import java.applet.AudioClip;
 import java.awt.Image;
 import java.awt.Shape;
 import java.awt.Toolkit;
@@ -25,7 +26,9 @@ public class Administrador extends javax.swing.JFrame {
     public Administrador() {
         this.setUndecorated(true);
         initComponents();
-
+ 
+        
+        
         this.setLocationRelativeTo(null);
 
         Shape forma = new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 27, 27);
@@ -83,6 +86,11 @@ public class Administrador extends javax.swing.JFrame {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo/Flong.jpg"))); // NOI18N
         jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -103,7 +111,6 @@ public class Administrador extends javax.swing.JFrame {
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Electric socket 2.png"))); // NOI18N
         jMenu1.setText("Inicio");
         jMenu1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jMenu1.setMinimumSize(new java.awt.Dimension(0, 0));
         jMenu1.setPreferredSize(new java.awt.Dimension(107, 48));
 
         jMenuItem1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -291,7 +298,11 @@ public class Administrador extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem22ActionPerformed
 
-    /**
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+
+    }//GEN-LAST:event_jLabel7MouseClicked
+
+    /**pasame para hacer elñ manual
      * @param args the command line arguments
      */
     public static void main(String args[]) {

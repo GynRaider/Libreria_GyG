@@ -10,12 +10,12 @@ import conexion.conexion;
 import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperCompileManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.view.JasperViewer;
+//import net.sf.jasperreports.engine.JRException;
+//import net.sf.jasperreports.engine.JasperCompileManager;
+//import net.sf.jasperreports.engine.JasperFillManager;
+//import net.sf.jasperreports.engine.JasperPrint;
+//import net.sf.jasperreports.engine.JasperReport;
+//import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -110,13 +110,13 @@ public class reportes extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         con = conexion.conectar();
-        try {
-            JasperReport reporte = JasperCompileManager.compileReport("src/reportes/reporteClientes.jrxml");
-            JasperPrint print = JasperFillManager.fillReport(reporte,null,this.con);
-            JasperViewer.viewReport(print);
-        } catch (JRException ex) {
-            System.out.print(ex.getMessage());
-        }
+//        try {
+//            JasperReport reporte = JasperCompileManager.compileReport("src/reportes/reporteClientes.jrxml");
+//            JasperPrint print = JasperFillManager.fillReport(reporte,null,this.con);
+//            JasperViewer.viewReport(print);
+//        } catch (JRException ex) {
+//            System.out.print(ex.getMessage());
+//        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

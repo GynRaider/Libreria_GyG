@@ -162,7 +162,7 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
         });
         jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(177, 87, -1, 25));
 
-        jLabel19.setText("jLabel13");
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo/VL.jpg"))); // NOI18N
         jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(-8, -2, 480, 130));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 70, 460, 120));
@@ -215,6 +215,7 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
         });
         jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(455, 14, -1, -1));
 
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo/VL.jpg"))); // NOI18N
         jLabel14.setText("jLabel13");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(-8, -2, 550, 110));
 
@@ -330,7 +331,11 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
 
         recogeAlmacen.setText("Recoge en el almacén");
         jPanel5.add(recogeAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 43, -1, 30));
+
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo/VL.jpg"))); // NOI18N
         jPanel5.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 540, 80));
+
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo/VL.jpg"))); // NOI18N
         jPanel5.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(-8, -2, 540, 80));
 
         jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 307, 996, -1));
@@ -406,9 +411,11 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
 
         jLabel2.setText("S/.");
         jPanel12.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(713, 18, -1, -1));
+
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo/VL.jpg"))); // NOI18N
         jPanel12.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(422, -2, 580, 70));
 
-        jLabel21.setText("jLabel13");
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo/VL.jpg"))); // NOI18N
         jPanel12.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(-8, -2, 430, 70));
 
         jPanel4.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, 996, 50));

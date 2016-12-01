@@ -29,9 +29,9 @@ public class EntradaProducto extends javax.swing.JInternalFrame {
         initComponents();
         jComboBox1.setVisible(false);
     }
-    
-    public void limpiar(){
-        
+
+    public void limpiar() {
+
     }
 
     /**
@@ -195,37 +195,34 @@ public class EntradaProducto extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String 
-                codProveedor = codigoProveedor.getText(), 
+        String codProveedor = codigoProveedor.getText(),
                 codProducto = codigoProducto.getText(),
                 codEntrada = "",
-                fecha, 
+                fecha,
                 estado;
-        Double
-                precUnitario, 
+        Double precUnitario,
                 precTotal;
-        int 
-                numFactura,cantidad, dia, mes, año;
-        
+        int numFactura, cantidad, dia, mes, año;
+
         Connection con;
         con = conexion.conectar();
-        
-        if (codProveedor.equals("") || codProducto.equals("") || fechaEntrada.getDate() == null || numeroFactura.getText().equals("") || precioProducto.getText().equals("") || estadoEntrada.getSelectedIndex() == -1 || (Integer)cantidadProducto.getValue() < 1) {
-            JOptionPane.showMessageDialog(null,"Complete todos los campos");
+
+        if (codProveedor.equals("") || codProducto.equals("") || fechaEntrada.getDate() == null || numeroFactura.getText().equals("") || precioProducto.getText().equals("") || estadoEntrada.getSelectedIndex() == -1 || (Integer) cantidadProducto.getValue() < 1) {
+            JOptionPane.showMessageDialog(null, "Complete todos los campos");
         } else {
             estado = estadoEntrada.getSelectedItem().toString();
             precUnitario = Double.parseDouble(precioProducto.getText());
             numFactura = Integer.parseInt(numeroFactura.getText());
-            cantidad = (Integer)cantidadProducto.getValue();
+            cantidad = (Integer) cantidadProducto.getValue();
             precTotal = precUnitario * cantidad;
-            
+
             precioTotal.setText(precTotal.toString());
-            
+
             dia = fechaEntrada.getCalendar().get(Calendar.DAY_OF_MONTH);
             mes = fechaEntrada.getCalendar().get(Calendar.MONTH);
             año = fechaEntrada.getCalendar().get(Calendar.YEAR);
             fecha = año + "-" + mes + "-" + dia;
-            
+
             try {
                 CallableStatement cst = con.prepareCall("Call insertar_entrada_productos (?,?,?,?,?,?,?)");
                 cst.setString(1, codProveedor);
@@ -236,68 +233,68 @@ public class EntradaProducto extends javax.swing.JInternalFrame {
                 cst.setInt(6, cantidad);
                 cst.setString(7, estado);
                 cst.execute();
-                
+
                 cst.close();
-                JOptionPane.showMessageDialog(null,"Entrada añadido correctamente");
-                                
-                if (estadoEntrada.getSelectedIndex()==0) {
+                JOptionPane.showMessageDialog(null, "Entrada añadido correctamente");
+
+                if (estadoEntrada.getSelectedIndex() == 0) {
                     int stock, nuevoStock;
-                    
+
                     Statement st = con.createStatement();
-                    ResultSet rs = st.executeQuery("select * from almacen where codProducto = '"+codProducto+"'");
+                    ResultSet rs = st.executeQuery("select * from almacen where codProducto = '" + codProducto + "'");
                     rs.last();
-                    
+
                     stock = rs.getInt("stock");
-                    
+
                     nuevoStock = stock + cantidad;
-                    
+
                     try {
-                        PreparedStatement pst = con.prepareStatement("UPDATE almacen SET stock  = "+nuevoStock+" WHERE codProducto = '"+codProducto+"'");
-                    
-                        if(pst.executeUpdate() > 0){
-                            JOptionPane.showMessageDialog(null, "El nuevo stock del producto ha sido actualizado", "Operación Exitosa", 
-                                                      JOptionPane.INFORMATION_MESSAGE);
-                        }else{
+                        PreparedStatement pst = con.prepareStatement("UPDATE almacen SET stock  = " + nuevoStock + " WHERE codProducto = '" + codProducto + "'");
+
+                        if (pst.executeUpdate() > 0) {
+                            JOptionPane.showMessageDialog(null, "El nuevo stock del producto ha sido actualizado", "Operación Exitosa",
+                                    JOptionPane.INFORMATION_MESSAGE);
+                        } else {
                             JOptionPane.showMessageDialog(null, "No se ha podido realizar la actualización de los datos\n"
-                                                          + "Inténtelo nuevamente.", "Error en la operación", 
-                                                          JOptionPane.ERROR_MESSAGE);
+                                    + "Inténtelo nuevamente.", "Error en la operación",
+                                    JOptionPane.ERROR_MESSAGE);
                         }
-                        
+
                         pst.close();
                     } catch (SQLException ex) {
-                        JOptionPane.showMessageDialog(null,"Error actualizando la tabla almacen "+ex);
+                        JOptionPane.showMessageDialog(null, "Error actualizando la tabla almacen " + ex);
                     }
                 }
-                
+
                 if (estadoEntrada.getSelectedIndex() == 1) {
                     try {
                         Statement st = con.createStatement();
-                        ResultSet rs = st.executeQuery("select * from entrada_de_productos where factura = '"+numFactura+"'");
+                        ResultSet rs = st.executeQuery("select * from entrada_de_productos where factura = '" + numFactura + "'");
                         rs.last();
 
                         codEntrada = rs.getString("codEntrada");
 
                         CallableStatement cst1 = con.prepareCall("Call insertar_devolucionproductos(?,?,?)");
-                        cst1.setString(1,codEntrada);
-                        cst1.setString(2,codigoProveedor.getText());
-                        cst1.setString(3,jComboBox1.getSelectedItem().toString());
+                        cst1.setString(1, codEntrada);
+                        cst1.setString(2, codigoProveedor.getText());
+                        cst1.setString(3, jComboBox1.getSelectedItem().toString());
                         cst1.execute();
                         st.close();
                         rs.close();
                     } catch (Exception e) {
-                        JOptionPane.showMessageDialog(null,"Error ingresando a la tabla devoluciones "+e);
+                        JOptionPane.showMessageDialog(null, "Error ingresando a la tabla devoluciones " + e);
                     }
                 }
-                
+
                 if (estadoEntrada.getSelectedIndex() == 2) {
-                    JOptionPane.showMessageDialog(null,"La entrada permanecerá en espera y no se actualizará el stock disponible");
+                    JOptionPane.showMessageDialog(null, "La entrada permanecerá en espera y no se actualizará el stock disponible");
                 }
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null,"Error ingresando a la tabla entrada_de_productos "+ex);
+                JOptionPane.showMessageDialog(null, "Error ingresando a la tabla entrada_de_productos " + ex);
             }
-            
+
         }
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void estadoEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estadoEntradaActionPerformed
@@ -313,17 +310,17 @@ public class EntradaProducto extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void numeroFacturaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numeroFacturaKeyTyped
-        if(!Character.isDigit(evt.getKeyChar())){
+        if (!Character.isDigit(evt.getKeyChar())) {
             evt.consume();
         }
     }//GEN-LAST:event_numeroFacturaKeyTyped
 
     private void precioProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precioProductoKeyTyped
 
-        if(!Character.isDigit(evt.getKeyChar()) && evt.getKeyChar() != '.'){
+        if (!Character.isDigit(evt.getKeyChar()) && evt.getKeyChar() != '.') {
             evt.consume();
         }
-        
+
         if (evt.getKeyChar() == '.' && precioProducto.getText().contains(".")) {
             evt.consume();
         }
@@ -331,57 +328,57 @@ public class EntradaProducto extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_precioProductoKeyTyped
 
     private void precioProductoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precioProductoKeyReleased
-        Double prec,tot;
-        int    cant;
-        
-        try {
-            if (!precioProducto.getText().equals("")) {
-                prec = Double.parseDouble(precioProducto.getText());
-                cant = (Integer)cantidadProducto.getValue();
-
-                tot = prec * cant;
-                
-                precioTotal.setText(Double.toString(tot));
-            }
-        } catch ( NumberFormatException ex ) {
-            JOptionPane.showMessageDialog(null,"Imposible calcular datos de más de 10 dígitos");
-        }
-        
-    }//GEN-LAST:event_precioProductoKeyReleased
-
-    private void cantidadProductoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cantidadProductoKeyReleased
-        Double prec,tot;
+        Double prec, tot;
         int cant;
 
         try {
             if (!precioProducto.getText().equals("")) {
                 prec = Double.parseDouble(precioProducto.getText());
-                cant = (Integer)cantidadProducto.getValue();
+                cant = (Integer) cantidadProducto.getValue();
 
                 tot = prec * cant;
 
                 precioTotal.setText(Double.toString(tot));
             }
-        } catch ( NumberFormatException ex ) {
-            JOptionPane.showMessageDialog(null,"Imposible calcular datos de más de 10 dígitos");
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Imposible calcular datos de más de 10 dígitos");
+        }
+
+    }//GEN-LAST:event_precioProductoKeyReleased
+
+    private void cantidadProductoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cantidadProductoKeyReleased
+        Double prec, tot;
+        int cant;
+
+        try {
+            if (!precioProducto.getText().equals("")) {
+                prec = Double.parseDouble(precioProducto.getText());
+                cant = (Integer) cantidadProducto.getValue();
+
+                tot = prec * cant;
+
+                precioTotal.setText(Double.toString(tot));
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Imposible calcular datos de más de 10 dígitos");
         }
     }//GEN-LAST:event_cantidadProductoKeyReleased
 
     private void cantidadProductoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_cantidadProductoStateChanged
-        Double prec,tot;
+        Double prec, tot;
         int cant;
-        
+
         try {
             if (!precioProducto.getText().equals("")) {
                 prec = Double.parseDouble(precioProducto.getText());
-                cant = (Integer)cantidadProducto.getValue();
+                cant = (Integer) cantidadProducto.getValue();
 
                 tot = prec * cant;
 
                 precioTotal.setText(Double.toString(tot));
             }
-        } catch ( NumberFormatException ex ) {
-            JOptionPane.showMessageDialog(null,"Imposible calcular datos de más de 10 dígitos");
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Imposible calcular datos de más de 10 dígitos");
         }
     }//GEN-LAST:event_cantidadProductoStateChanged
 
