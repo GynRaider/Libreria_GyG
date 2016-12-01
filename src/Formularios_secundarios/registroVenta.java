@@ -28,6 +28,13 @@ public class registroVenta extends javax.swing.JInternalFrame {
     public registroVenta() {
         initComponents();
     }
+    
+    public static void recibirCod(String r){
+        idventa.setText(r);
+        jButton1.doClick();
+        idventa.setEditable(false);
+        jButton1.setVisible(false);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -451,9 +458,9 @@ public class registroVenta extends javax.swing.JInternalFrame {
     private javax.swing.JTextField fecha;
     private javax.swing.JTextField idcliente;
     private javax.swing.JTextField idempleado;
-    private javax.swing.JTextField idventa;
+    private static javax.swing.JTextField idventa;
     private javax.swing.JTextField igv;
-    private javax.swing.JButton jButton1;
+    private static javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;

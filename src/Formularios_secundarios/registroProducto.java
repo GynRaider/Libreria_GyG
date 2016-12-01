@@ -6,6 +6,7 @@
 package Formularios_secundarios;
 
 import conexion.conexion;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.CallableStatement;
@@ -28,7 +29,7 @@ public class registroProducto extends javax.swing.JInternalFrame {
 
     public registroProducto() {
         initComponents();
-                jTable1.addMouseListener(new MouseAdapter() {
+        jTable1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 int fila = jTable1.rowAtPoint(e.getPoint());
@@ -55,12 +56,21 @@ public class registroProducto extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+
+        jMenuItem1.setText("Enviar al registro");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(jMenuItem1);
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -78,7 +88,7 @@ public class registroProducto extends javax.swing.JInternalFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 11, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -88,18 +98,11 @@ public class registroProducto extends javax.swing.JInternalFrame {
                 "Código", "Nombre", "Marca", "Precio", "Stock", "Numero Almacen"
             }
         ));
+        jTable1.setComponentPopupMenu(jPopupMenu1);
         jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 52, 563, 230));
-
-        jButton3.setText("Enviar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 180, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo/Captura.PNG"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 420));
@@ -153,24 +156,18 @@ public class registroProducto extends javax.swing.JInternalFrame {
        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        nuevasVentas nv = new nuevasVentas();
-        
-//        JOptionPane.showMessageDialog(null,codProd+nomb+marc+pre);
-//        nuevasVentas.jTextField3.setText(codProd);
-
-        DefaultTableModel tabla = (DefaultTableModel)nuevasVentas.jTable1.getModel();
-        tabla.addRow(new Object[]{codProd,nomb,"sdf",pre,"eefef"});
-//        nuevasVentas.jTable1.setModel(model);
-        
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        int cant = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingresa una cantidad"));
+        nuevasVentas.updateTextField(codProd, cant);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
