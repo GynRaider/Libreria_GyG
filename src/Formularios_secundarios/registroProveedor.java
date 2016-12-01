@@ -5,6 +5,8 @@
  */
 package Formularios_secundarios;
 
+import java.awt.event.KeyEvent;
+
 /**
  *
  * @author GynRaider
@@ -16,6 +18,7 @@ public class registroProveedor extends javax.swing.JInternalFrame {
      */
     public registroProveedor() {
         initComponents();
+        jButton2.setMnemonic(KeyEvent.VK_X);
     }
 
     /**
@@ -58,8 +61,6 @@ public class registroProveedor extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(468, 13, -1, -1));
-
-        jLabel22.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mchael\\Documents\\NetBeansProjects\\Libreria_GyG\\src\\fondo\\VL.jpg")); // NOI18N
         jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 60));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 540, 50));

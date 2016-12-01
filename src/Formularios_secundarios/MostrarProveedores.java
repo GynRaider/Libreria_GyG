@@ -6,6 +6,7 @@
 package Formularios_secundarios;
 
 import conexion.conexion;
+import java.awt.event.KeyEvent;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -25,6 +26,7 @@ public class MostrarProveedores extends javax.swing.JInternalFrame {
 
     public MostrarProveedores() {
         initComponents();
+        jButton2.setMnemonic(KeyEvent.VK_X);
     }
 
     /**

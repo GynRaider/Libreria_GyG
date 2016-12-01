@@ -135,16 +135,21 @@ public class Frmadm extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        menuMantenimiento = new javax.swing.JMenu();
-        modificarproducto = new javax.swing.JMenuItem();
-        modificarcliente = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        menuOperaciones = new javax.swing.JMenu();
+        operacionesVenta = new javax.swing.JMenuItem();
+        operacionesProducto = new javax.swing.JMenuItem();
+        operacionesCliente = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         venta = new javax.swing.JMenuItem();
         producto = new javax.swing.JMenuItem();
         cliente = new javax.swing.JMenuItem();
         empleado = new javax.swing.JMenuItem();
         comprobante = new javax.swing.JMenuItem();
+        menuMantenimiento = new javax.swing.JMenu();
+        modificarproducto = new javax.swing.JMenuItem();
+        modificarcliente = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         menuReportes = new javax.swing.JMenu();
         mostrarproveedores = new javax.swing.JMenuItem();
         entradaproducto = new javax.swing.JMenuItem();
@@ -152,11 +157,6 @@ public class Frmadm extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         nuevoproveedor = new javax.swing.JMenuItem();
         modificarproveedor = new javax.swing.JMenuItem();
-        menuOperaciones = new javax.swing.JMenu();
-        operacionesVenta = new javax.swing.JMenuItem();
-        operacionesProducto = new javax.swing.JMenuItem();
-        operacionesCliente = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
         menuAyuda = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
 
@@ -1002,6 +1002,116 @@ public class Frmadm extends javax.swing.JFrame {
 
         Menu.add(menuArchivo);
 
+        menuOperaciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Box double tape.png"))); // NOI18N
+        menuOperaciones.setText("Operaciones");
+        menuOperaciones.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+
+        operacionesVenta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        operacionesVenta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        operacionesVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Folder docs.png"))); // NOI18N
+        operacionesVenta.setText("Nueva Venta");
+        operacionesVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                operacionesVentaActionPerformed(evt);
+            }
+        });
+        menuOperaciones.add(operacionesVenta);
+
+        operacionesProducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        operacionesProducto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        operacionesProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Crate.png"))); // NOI18N
+        operacionesProducto.setText("Nuevo Producto");
+        operacionesProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                operacionesProductoActionPerformed(evt);
+            }
+        });
+        menuOperaciones.add(operacionesProducto);
+
+        operacionesCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        operacionesCliente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        operacionesCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/User.png"))); // NOI18N
+        operacionesCliente.setText("Nuevo Cliente");
+        operacionesCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                operacionesClienteActionPerformed(evt);
+            }
+        });
+        menuOperaciones.add(operacionesCliente);
+
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Coffee i l ny.png"))); // NOI18N
+        jMenuItem4.setText("Nuevo Empleado");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        menuOperaciones.add(jMenuItem4);
+
+        Menu.add(menuOperaciones);
+
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Applications.png"))); // NOI18N
+        jMenu1.setText("Registro");
+        jMenu1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+
+        venta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.ALT_MASK));
+        venta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        venta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Folder docs.png"))); // NOI18N
+        venta.setText("Buscar venta");
+        venta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ventaActionPerformed(evt);
+            }
+        });
+        jMenu1.add(venta);
+
+        producto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_MASK));
+        producto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        producto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Crate.png"))); // NOI18N
+        producto.setText("Mostrar Productos");
+        producto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(producto);
+
+        cliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
+        cliente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/User.png"))); // NOI18N
+        cliente.setText("Lista de clientes");
+        cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clienteActionPerformed(evt);
+            }
+        });
+        jMenu1.add(cliente);
+
+        empleado.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_MASK));
+        empleado.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        empleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Badge Prize.png"))); // NOI18N
+        empleado.setText("Lista de empleados");
+        empleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                empleadoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(empleado);
+
+        comprobante.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        comprobante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Wallet.png"))); // NOI18N
+        comprobante.setText("Comprobante de  Pago");
+        comprobante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comprobanteActionPerformed(evt);
+            }
+        });
+        jMenu1.add(comprobante);
+
+        Menu.add(jMenu1);
+
         menuMantenimiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Tools.png"))); // NOI18N
         menuMantenimiento.setText("Mantenimiento");
         menuMantenimiento.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -1040,66 +1150,6 @@ public class Frmadm extends javax.swing.JFrame {
         menuMantenimiento.add(jMenuItem5);
 
         Menu.add(menuMantenimiento);
-
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Applications.png"))); // NOI18N
-        jMenu1.setText("Registro");
-        jMenu1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-
-        venta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        venta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        venta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Folder docs.png"))); // NOI18N
-        venta.setText("Venta");
-        venta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ventaActionPerformed(evt);
-            }
-        });
-        jMenu1.add(venta);
-
-        producto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        producto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        producto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Crate.png"))); // NOI18N
-        producto.setText(" Producto");
-        producto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                productoActionPerformed(evt);
-            }
-        });
-        jMenu1.add(producto);
-
-        cliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_3, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        cliente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/User.png"))); // NOI18N
-        cliente.setText("Cliente");
-        cliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clienteActionPerformed(evt);
-            }
-        });
-        jMenu1.add(cliente);
-
-        empleado.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_4, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        empleado.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        empleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Badge Prize.png"))); // NOI18N
-        empleado.setText("Empleado");
-        empleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                empleadoActionPerformed(evt);
-            }
-        });
-        jMenu1.add(empleado);
-
-        comprobante.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        comprobante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Wallet.png"))); // NOI18N
-        comprobante.setText("Comprobante de  Pago");
-        comprobante.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comprobanteActionPerformed(evt);
-            }
-        });
-        jMenu1.add(comprobante);
-
-        Menu.add(jMenu1);
 
         menuReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Write document.png"))); // NOI18N
         menuReportes.setText("Proveedor");
@@ -1165,56 +1215,6 @@ public class Frmadm extends javax.swing.JFrame {
         menuReportes.add(jMenu2);
 
         Menu.add(menuReportes);
-
-        menuOperaciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Box double tape.png"))); // NOI18N
-        menuOperaciones.setText("Operaciones");
-        menuOperaciones.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-
-        operacionesVenta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        operacionesVenta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        operacionesVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Folder docs.png"))); // NOI18N
-        operacionesVenta.setText("Nueva Venta");
-        operacionesVenta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                operacionesVentaActionPerformed(evt);
-            }
-        });
-        menuOperaciones.add(operacionesVenta);
-
-        operacionesProducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        operacionesProducto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        operacionesProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Crate.png"))); // NOI18N
-        operacionesProducto.setText("Nuevo Producto");
-        operacionesProducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                operacionesProductoActionPerformed(evt);
-            }
-        });
-        menuOperaciones.add(operacionesProducto);
-
-        operacionesCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        operacionesCliente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        operacionesCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/User.png"))); // NOI18N
-        operacionesCliente.setText("Nuevo Cliente");
-        operacionesCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                operacionesClienteActionPerformed(evt);
-            }
-        });
-        menuOperaciones.add(operacionesCliente);
-
-        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Coffee i l ny.png"))); // NOI18N
-        jMenuItem4.setText("Nuevo Empleado");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        menuOperaciones.add(jMenuItem4);
-
-        Menu.add(menuOperaciones);
 
         menuAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Orb info.png"))); // NOI18N
         menuAyuda.setText("Ayuda");

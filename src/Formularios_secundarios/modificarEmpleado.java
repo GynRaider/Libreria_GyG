@@ -8,6 +8,7 @@ package Formularios_secundarios;
 import Atxy2k.CustomTextField.RestrictedTextField;
 import conexion.conexion;
 import java.awt.Dimension;
+import java.awt.event.KeyEvent;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.Date;
@@ -86,6 +87,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         
     public modificarEmpleado() {
         initComponents();
+        jButton3.setMnemonic(KeyEvent.VK_X);
         
         documentoEmpleado.setEditable(false);
         nombreEmpleado.setEditable(false);

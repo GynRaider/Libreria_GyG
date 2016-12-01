@@ -6,6 +6,7 @@
 package Formularios_secundarios;
 
 import java.awt.Dimension;
+import java.awt.event.KeyEvent;
 import javax.swing.JComponent;
 import java.io.IOException;
 import java.util.logging.Level;

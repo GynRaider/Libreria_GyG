@@ -13,6 +13,7 @@ import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.Shape;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import java.awt.geom.RoundRectangle2D;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -48,7 +49,7 @@ public class nuevoCliente extends javax.swing.JInternalFrame {
 //        ((BasicInternalFrameUI) this.getUI()).setNorthPane(null);
 //         
         initComponents();
-        
+        jButton1.setMnemonic(KeyEvent.VK_X);
         
         
        

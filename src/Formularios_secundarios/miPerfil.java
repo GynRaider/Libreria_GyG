@@ -6,6 +6,7 @@
 package Formularios_secundarios;
 
 import java.awt.Dimension;
+import java.awt.event.KeyEvent;
 import javax.swing.JComponent;
 
 /**
@@ -23,6 +24,7 @@ public class miPerfil extends javax.swing.JInternalFrame {
     public miPerfil() {
         initComponents();
         ocultarBarraTitulo();
+        jButton2.setMnemonic(KeyEvent.VK_X);
     }
 
     /**

@@ -8,6 +8,7 @@ package Formularios_secundarios;
 import Atxy2k.CustomTextField.RestrictedTextField;
 import conexion.conexion;
 import java.awt.Dimension;
+import java.awt.event.KeyEvent;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -71,7 +72,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         
     public nuevoempleadoventa() {
         initComponents();
-        
+        jButton3.setMnemonic(KeyEvent.VK_X);
         jLabel18.setVisible(false);
         jSpinner1.setVisible(false);
             

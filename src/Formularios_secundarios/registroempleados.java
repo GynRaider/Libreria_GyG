@@ -6,6 +6,7 @@
 package Formularios_secundarios;
 
 import conexion.conexion;
+import java.awt.event.KeyEvent;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -23,6 +24,7 @@ public class registroempleados extends javax.swing.JInternalFrame {
      */
     public registroempleados() {
         initComponents();
+        jButton2.setMnemonic(KeyEvent.VK_X);
     }
 
     /**

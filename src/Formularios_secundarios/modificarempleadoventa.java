@@ -7,6 +7,7 @@ package Formularios_secundarios;
 
 import Atxy2k.CustomTextField.RestrictedTextField;
 import java.awt.Dimension;
+import java.awt.event.KeyEvent;
 import javax.swing.JComponent;
 
 /**
@@ -22,10 +23,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     public modificarempleadoventa() {
         initComponents();
         ocultarBarraTitulo();
-        
-        
-        
-        
+        jButton3.setMnemonic(KeyEvent.VK_X);
     }
 
     /**

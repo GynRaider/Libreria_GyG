@@ -6,6 +6,7 @@
 package Formularios_secundarios;
 
 import conexion.conexion;
+import java.awt.event.KeyEvent;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,6 +29,7 @@ public class EntradaProducto extends javax.swing.JInternalFrame {
     public EntradaProducto() {
         initComponents();
         jComboBox1.setVisible(false);
+        jButton2.setMnemonic(KeyEvent.VK_X);
     }
 
     public void limpiar() {

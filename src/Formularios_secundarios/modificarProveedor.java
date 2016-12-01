@@ -6,6 +6,7 @@
 package Formularios_secundarios;
 
 import conexion.conexion;
+import java.awt.event.KeyEvent;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -46,6 +47,7 @@ public class modificarProveedor extends javax.swing.JInternalFrame {
     }
     public modificarProveedor() {
         initComponents();
+        jButton3.setMnemonic(KeyEvent.VK_X);
     }
 
     /**
@@ -152,8 +154,6 @@ public class modificarProveedor extends javax.swing.JInternalFrame {
 
         codigoProveedor.setEnabled(false);
         jPanel10.add(codigoProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 48, 75, -1));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mchael\\Documents\\NetBeansProjects\\Libreria_GyG\\src\\fondo\\VL.jpg")); // NOI18N
         jPanel10.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 210));
 
         getContentPane().add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 11, 420, 208));
@@ -193,8 +193,6 @@ public class modificarProveedor extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 42, -1, -1));
-
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mchael\\Documents\\NetBeansProjects\\Libreria_GyG\\src\\fondo\\VL.jpg")); // NOI18N
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 100));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 230, 420, 100));

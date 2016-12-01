@@ -7,6 +7,7 @@ package Formularios_secundarios;
 
 import conexion.conexion;
 import java.awt.Dimension;
+import java.awt.event.KeyEvent;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.Date;
@@ -77,6 +78,7 @@ public class modificarCliente extends javax.swing.JInternalFrame {
 //        ((BasicInternalFrameUI) this.getUI()).setNorthPane(null);
 //         
         initComponents();
+        jButton1.setMnemonic(KeyEvent.VK_X);
 
     }
 

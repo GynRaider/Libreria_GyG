@@ -7,6 +7,7 @@ package Formularios_secundarios;
 
 import conexion.conexion;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.CallableStatement;
@@ -29,6 +30,7 @@ public class registroProducto extends javax.swing.JInternalFrame {
 
     public registroProducto() {
         initComponents();
+        jButton1.setMnemonic(KeyEvent.VK_X);
         jTable1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {

@@ -6,6 +6,7 @@
 package Formularios_secundarios;
 
 import conexion.conexion;
+import java.awt.event.KeyEvent;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -22,6 +23,7 @@ public class nuevoproveedor extends javax.swing.JInternalFrame {
      */
     public nuevoproveedor() {
         initComponents();
+        jButton1.setMnemonic(KeyEvent.VK_X);
     }
 
     /**

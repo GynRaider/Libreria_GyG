@@ -32,6 +32,7 @@ public class registro_comprobante_pago extends javax.swing.JInternalFrame {
     
     public registro_comprobante_pago() {
         initComponents();
+        jButton2.setMnemonic(KeyEvent.VK_X);
         jTable1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {

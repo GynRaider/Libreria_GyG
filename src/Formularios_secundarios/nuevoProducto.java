@@ -38,7 +38,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     public nuevoProducto() {
         ocultarBarraTitulo() ;
         initComponents();
-        
+        jButton1.setMnemonic(KeyEvent.VK_X);
          RestrictedTextField nn = new RestrictedTextField(nombreProducto); 
            nn.setLimit(20);
            

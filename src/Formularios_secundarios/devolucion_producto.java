@@ -5,6 +5,8 @@
  */
 package Formularios_secundarios;
 
+import java.awt.event.KeyEvent;
+
 /**
  *
  * @author GynRaider
@@ -16,6 +18,7 @@ public class devolucion_producto extends javax.swing.JInternalFrame {
      */
     public devolucion_producto() {
         initComponents();
+        jButton2.setMnemonic(KeyEvent.VK_X);
     }
 
     /**

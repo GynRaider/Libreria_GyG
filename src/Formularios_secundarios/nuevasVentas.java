@@ -10,6 +10,7 @@ import Formularios_principales.Frmadm;
 import Formularios_principales.login;
 import conexion.conexion;
 import java.awt.Dimension;
+import java.awt.event.KeyEvent;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -37,6 +38,7 @@ public class nuevasVentas extends javax.swing.JInternalFrame {
     private Dimension dimBarra = null; 
     public nuevasVentas() {
         initComponents();
+        jButton1.setMnemonic(KeyEvent.VK_X);
         ocultarBarraTitulo();
         Calendar c2 = new GregorianCalendar();
         jDateChooser2.setCalendar(c2);

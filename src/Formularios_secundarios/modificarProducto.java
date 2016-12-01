@@ -7,6 +7,7 @@ package Formularios_secundarios;
 
 import conexion.conexion;
 import java.awt.Dimension;
+import java.awt.event.KeyEvent;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -29,6 +30,7 @@ public class modificarProducto extends javax.swing.JInternalFrame {
     public modificarProducto() {
         initComponents();
         ocultarBarraTitulo();
+        jButton1.setMnemonic(KeyEvent.VK_X);
     }
     
     public void limpiar(){
